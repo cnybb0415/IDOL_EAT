@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #2A2A29;
+  list-style-type: none;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  background: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+button, a, input[type=button], input[type=submit] {
+  cursor: pointer;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+p, span {
+  cursor: default;
+}
+
+p {
+  word-break: keep-all;
+}
+
+table, thead, tbody, th, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+  cursor: default;
+}
+
+html, body {
+  width: 100%;
+}
+html .idolUpdateWrap, body .idolUpdateWrap {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+html .idolUpdateWrap .img1, body .idolUpdateWrap .img1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+html .idolUpdateWrap .img2, body .idolUpdateWrap .img2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+html .idolUpdateWrap .img3, body .idolUpdateWrap .img3 {
+  position: absolute;
+  top: 19.6rem;
+  left: 24.3rem;
+}
+html .idolUpdateWrap .img4, body .idolUpdateWrap .img4 {
+  position: absolute;
+  top: 54.8rem;
+  left: 160rem;
+}
+html .idolUpdateWrap .img5, body .idolUpdateWrap .img5 {
+  position: absolute;
+  top: 87.6rem;
+  left: 42.6rem;
+}
+html .idolUpdateWrap .img6, body .idolUpdateWrap .img6 {
+  position: absolute;
+  top: 121rem;
+  left: 9.7rem;
+}
+html .idolUpdateWrap .img7, body .idolUpdateWrap .img7 {
+  position: absolute;
+  bottom: 7rem;
+  left: 150rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2, body .idolUpdateWrap .idolUpdateWrap2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15rem;
+  margin-bottom: 25rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 > header, body .idolUpdateWrap .idolUpdateWrap2 > header {
+  position: fixed;
+  width: 100%;
+  height: 8rem;
+  background-color: white;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+html .idolUpdateWrap .idolUpdateWrap2 > header > div, body .idolUpdateWrap .idolUpdateWrap2 > header > div {
+  width: 4rem;
+  height: 4rem;
+  background-color: #7B7B7B;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 6.4rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 > header > p, body .idolUpdateWrap .idolUpdateWrap2 > header > p {
+  font-size: 2rem;
+  margin-right: 6.4rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 > header, body .idolUpdateWrap .idolUpdateWrap2 > header {
+  position: fixed;
+  top: 0;
+  z-index: 2000;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox {
+  width: 54.4rem;
+  height: 120.2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox .idolUpdateBoxTitle, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox .idolUpdateBoxTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #8DA1FB;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form {
+  width: 54.4rem;
+  height: 105.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateImgs, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateImgs {
+  width: 54.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateImgs .idolUpdateBoxImg, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateImgs .idolUpdateBoxImg {
+  width: 22.9rem;
+  height: 20rem;
+  border-radius: 2.4rem;
+  border: 0.1rem solid #8DA1FB;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateImgs .idolUpdateBoxMarkerImg, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateImgs .idolUpdateBoxMarkerImg {
+  width: 22.9rem;
+  height: 20rem;
+  border-radius: 2.4rem;
+  border: 0.1rem solid #8DA1FB;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo {
+  width: 54.4rem;
+  height: 80.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs {
+  width: 54.4rem;
+  height: 72.2rem;
+  border-top: 0.1rem solid #D4D4D4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox {
+  width: 53.6rem;
+  height: 10.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > p, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > p {
+  width: auto;
+  height: 2.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 0.8rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > input, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > input {
+  width: 53.6rem;
+  height: 7.2rem;
+  padding-left: 1.5rem;
+  font-size: 1.8rem;
+  border-radius: 1.6rem;
+  background-color: #F6F6F6;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox input[type=number]::-webkit-outer-spin-button,
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox input[type=number]::-webkit-inner-spin-button, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox input[type=number]::-webkit-outer-spin-button,
+body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > input::-moz-placeholder, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > input::-moz-placeholder {
+  color: #CECECE;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > input:-ms-input-placeholder, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > input:-ms-input-placeholder {
+  color: #CECECE;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > input::placeholder, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoBox > input::placeholder {
+  color: #CECECE;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg {
+  width: 53.6rem;
+  height: 10.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > p, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > p {
+  width: auto;
+  height: 2.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 0.8rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div {
+  width: 53.6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div .imgUpload, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div .imgUpload {
+  display: inline-block;
+  width: 36rem;
+  height: 7.2rem;
+  font-size: 1.8rem;
+  line-height: 7.2rem;
+  border-radius: 1.6rem;
+  color: #CECECE;
+  background-color: #F6F6F6;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div > label, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div > label {
+  display: inline-block;
+  width: 16.4rem;
+  height: 7.2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 7.2rem;
+  border-radius: 1.6rem;
+  color: #CECECE;
+  background-color: #F6F6F6;
+  cursor: pointer;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div > label:hover, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div > label:hover {
+  background-color: #D4D4D4;
+  color: #fff;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div input:last-child, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs .idolUpdateInfoImg > div input:last-child {
+  display: none;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs > div:first-child, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs > div:first-child {
+  margin-bottom: 1.6rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs > div:nth-child(2), body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs > div:nth-child(2) {
+  margin-bottom: 1.6rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs > div:nth-child(3), body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs > div:nth-child(3) {
+  margin-bottom: 1.6rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs > div:nth-child(4), body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBoxs > div:nth-child(4) {
+  margin-bottom: 1.6rem;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn {
+  width: 54.4rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn .idolUpdateInfoBtn1, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn .idolUpdateInfoBtn1 {
+  width: 19.4rem;
+  height: 8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border-radius: 4rem;
+  color: #fff;
+  background-color: #D4D4D4;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn .idolUpdateInfoBtn1:hover, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn .idolUpdateInfoBtn1:hover {
+  background-color: #667CDD;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn .idolUpdateInfoBtn2, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn .idolUpdateInfoBtn2 {
+  width: 32.6rem;
+  height: 8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border-radius: 4rem;
+  color: #fff;
+  background-color: #8DA1FB;
+}
+html .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn .idolUpdateInfoBtn2:hover, body .idolUpdateWrap .idolUpdateWrap2 .idolUpdateBox > form .idolUpdateInfo .idolUpdateInfoBtn .idolUpdateInfoBtn2:hover {
+  background-color: #667CDD;
+}/*# sourceMappingURL=idolUpdate.css.map */
