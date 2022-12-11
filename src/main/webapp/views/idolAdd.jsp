@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/idolAdd.css">
+<link rel="stylesheet" href="/resources/css/idolAdd.css" type="text/css">
 <meta charset="UTF-8">
 <title>아이돌 추가 페이지</title>
 </head>
@@ -11,13 +11,13 @@
    <!-- 아이돌 정보 추가 -->
    <main class="idolAddWrap">
       <!-- 배경 요소 -->
-      <img class="img1" src="../img/bottomPattern1025.png" alt="배경요소">
-      <img class="img2" src="../img/bottomPattern634.png" alt="배경요소">
-      <img class="img3" src="../img/orange64.png" alt="배경요소">
-      <img class="img4" src="../img/purple56.png" alt="배경요소">
-      <img class="img5" src="../img/purple32.png" alt="배경요소">
-      <img class="img6" src="../img/red48.png" alt="배경요소">
-      <img class="img7" src="../img/green72.png" alt="배경요소">
+      <img class="img1" src="/resources/img/bottomPattern1025.png" alt="배경요소">
+      <img class="img2" src="/resources/img/bottomPattern634.png" alt="배경요소">
+      <img class="img3" src="/resources/img/orange64.png" alt="배경요소">
+      <img class="img4" src="/resources/img/purple56.png" alt="배경요소">
+      <img class="img5" src="/resources/img/purple32.png" alt="배경요소">
+      <img class="img6" src="/resources/img/red48.png" alt="배경요소">
+      <img class="img7" src="/resources/img/green72.png" alt="배경요소">
       <!-- 헤더, 정보 입력 -->
       <div class="idolAddWrap2">
          <!-- 관리자 페이지 헤더 -->
@@ -28,10 +28,10 @@
          <!-- 정보 입력 -->
          <section class="idolAddBox">
             <h2 class="idolAddBoxTitle">아이돌 정보 추가</h2>
-            <form action="admin" method="POST" enctype="multipart/form-data" onsubmit="idolAddSubmit(event)">
+            <form action="adminIdol.do" method="POST" enctype="multipart/form-data" onsubmit="idolAddSubmit(event)">
                <div class="idolAddImgs">
-                  <img class="idolAddBoxImg" src="" alt="아이돌 사진">
-                  <img class="idolAddBoxMarkerImg" src="" alt="마커 사진">
+                  <img class="idolAddBoxImg" id="idolAddImg" src="" alt="아이돌 사진">
+                  <img class="idolAddBoxMarkerImg" id="markerAddImg" src="" alt="마커 사진">
                </div>
                <div class="idolAddInfo">
                   <div class="idolAddInfoBoxs">
@@ -46,17 +46,17 @@
                      <div class="idolAddInfoImg">
                         <p>아이돌 이미지 첨부</p>
                         <div>
-                           <input class="imgUpload" id="idolImgName" disabled="disabled">
+                           <input class="imgUpload" id="idolImgName" disabled="disabled" onchange="readURL(this);">
                            <label for="inputIdolImg">업로드</label>
-                           <input type="file" name="inputIdolImg" id="inputIdolImg" class="inputIdolImg" onchange="idolImgChange()">
+                           <input type="file" name="inputIdolImg" id="inputIdolImg" class="inputIdolImg" onchange="idolImgChange(event)">
                         </div>
                      </div>
                      <div class="idolAddInfoImg">
                         <p>마커 이미지 첨부</p>
                         <div>
-                           <input class="imgUpload" id="idolMarkerName" disabled="disabled">
+                           <input class="imgUpload" id="idolMarkerName" disabled="disabled" onchange="readURL(this);">
                            <label for="inputMarkerImg">업로드</label>
-                           <input type="file" name="inputMarkerImg" id="inputMarkerImg" class="inputMarkerImg" onchange="idolMarkerChange()"> 
+                           <input type="file" name="inputIdolMark" id="inputMarkerImg" class="inputMarkerImg" onchange="idolMarkerChange(event)"> 
                         </div>
                      </div>
                   </div>
@@ -84,13 +84,24 @@
          }
       }
 
-      function idolImgChange(){
+      function idolImgChange(event){
          document.getElementById("idolImgName").value =  document.getElementById("inputIdolImg").value;
+         let reader = new FileReader();
+         reader.onload = function(e) {
+            document.getElementById("idolAddImg").setAttribute("src", e.target.result);
+         };
+         reader.readAsDataURL(event.target.files[0]);
       }
 
-      function idolMarkerChange(){
+      function idolMarkerChange(event){
          document.getElementById("idolMarkerName").value =  document.getElementById("inputMarkerImg").value;
+         let reader = new FileReader();
+         reader.onload = function(e) {
+            document.getElementById("markerAddImg").setAttribute("src", e.target.result);
+         };
+         reader.readAsDataURL(event.target.files[0]);
       }
+      
    </script>
 </body>
 </html>

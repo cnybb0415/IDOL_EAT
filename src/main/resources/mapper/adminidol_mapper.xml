@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+<!-- 이 XML 을 어떤 interface 하고 연결 할 것인가 -->
+<mapper namespace="kr.co.gudi.dao.AdminIdolDAO">
+
+	<insert id="write" 
+		useGeneratedKeys="true"
+		keyColumn="idol_idx"
+		keyProperty="idol_idx"
+		parameterType="IdolDTO">
+		INSERT INTO idol(idol_group, idol_name)
+			VALUES(#{idol_group}, #{idol_name})
+	</insert>
+	
+	<update id="imgFileUpload">
+		UPDATE idol SET 
+			idol_img_ori = #{param2}, 
+			idol_img_new = #{param3}
+		WHERE idol_idx = #{param1}
+	</update>
+	
+	<update id="markFileUpload">
+		UPDATE idol SET 
+			idol_mark_ori = #{param2}, 
+			idol_mark_new = #{param3}
+		WHERE idol_idx = #{param1}
+	</update>
+	
+	<select id="idolList" resultType="IdolDTO">
+		SELECT * FROM idol ORDER BY idol_idx DESC
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
