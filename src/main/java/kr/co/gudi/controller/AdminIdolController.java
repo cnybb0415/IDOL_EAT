@@ -52,11 +52,7 @@ public class AdminIdolController {
 		
 		return root+"/"+sub+"/"+page;
 	}
-	
-	@RequestMapping(value="/")
-	public String home() {
-		return "home";
-	}
+
 	
 	
 	@RequestMapping(value="/adminIdol.do", method=RequestMethod.POST)

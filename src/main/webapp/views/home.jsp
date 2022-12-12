@@ -11,6 +11,7 @@
 <body>
 	<h3>Test</h3>
 	<a href="/idolAdd.go">아이돌추가</a>
+	<a href="/eatList.do">맛집리스트</a>
 	<a href="/admin.go">ADMIN</a>
 </body>
 <script>

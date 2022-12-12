@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import kr.co.gudi.dto.EatDTO;
 import kr.co.gudi.dto.IdolDTO;
 
 @Mapper
-public interface AdminIdolDAO {
+public interface AdminDAO {
 
 
 //	void fileUpload(int idol_idx, String oriFileName, String newFileName);
@@ -19,6 +20,8 @@ public interface AdminIdolDAO {
 	void markFileUpload(int idol_idx, String markOriFileName, String markNewFileName);
 
 	ArrayList<IdolDTO> idolList();
+	
+	ArrayList<EatDTO> eatList();
 
 
 }

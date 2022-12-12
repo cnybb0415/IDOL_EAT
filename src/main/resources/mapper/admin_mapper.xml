@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"
 >
 <!-- 이 XML 을 어떤 interface 하고 연결 할 것인가 -->
-<mapper namespace="kr.co.gudi.dao.AdminIdolDAO">
+<mapper namespace="kr.co.gudi.dao.AdminDAO">
 
 	<insert id="write" 
 		useGeneratedKeys="true"
@@ -30,6 +30,13 @@
 	
 	<select id="idolList" resultType="IdolDTO">
 		SELECT * FROM idol ORDER BY idol_idx DESC
+	</select>
+	
+	<select id="eatList" resultType="EatDTO">
+		SELECT e.eat_idx, e.eat_name, i.idol_name, u.user_id, e.eat_date 
+		FROM idol i, eat e, user u 
+		WHERE (e.idol_idx  = i.idol_idx) and (e.user_idx = u.user_idx) and e.eat_state=1 
+		ORDER BY e.eat_idx DESC ;
 	</select>
 </mapper>
 

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.gudi.dao.AdminIdolDAO;
+import kr.co.gudi.dao.AdminDAO;
 import kr.co.gudi.dto.IdolDTO;
 
 
@@ -23,7 +23,7 @@ public class AdminIdolService {
 
 	Logger logger = LoggerFactory.getLogger(getClass());
 	@Value("${file.location}") private String root;
-	@Autowired AdminIdolDAO dao;
+	@Autowired AdminDAO dao;
 	
 	public void write(HashMap<String, String> params, MultipartFile inputIdolImg, MultipartFile inputIdolMark) throws Exception {
 		IdolDTO dto = new IdolDTO(); 
