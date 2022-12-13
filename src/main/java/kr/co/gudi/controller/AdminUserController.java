@@ -44,7 +44,7 @@ public class AdminUserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/adminMemberDetail")
+	@RequestMapping(value = "/memberDetail.go")
 	public HashMap<String, Object> adminMemberDetail(@RequestParam String user_idx) {
 		
 		

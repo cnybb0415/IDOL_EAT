@@ -28,7 +28,7 @@
             <button class="adminButton" onclick="adminIdolClick(event)">아이돌 추가</button>
             <p id="buttonFlag"></p>
           </div>
-          <div>
+          <div onclick="idolAddGo()">
             <div><div></div></div>
           </div>
         </div>
@@ -40,6 +40,9 @@
   </div>
 
   <script>
+  	function idolAddGo(){
+  		window.location.href = "/idolAdd.go";
+  	}
   	//각 필드의 넓이를 담당하는 class를 적용하는 함수
     function adminClassSelector(fieldName){
       let classSelect = "";
@@ -115,10 +118,12 @@
       for(let i = 0; i<classValue.length; i++){ 
         let td = document.createElement("td"); 
         td.setAttribute("class", adminClassSelector(classValue[i]));
-        if(classValue[i] == "상세정보" || classValue[i] == "수정"){
-          td.innerHTML = "<button class='orangeButton'>" + classValue[i] + "</button>";
-        } else if(classValue[i] == "숨김"){ 
-          td.innerHTML = "<button class='purpleButton'>" + classValue[i] + "</button>";
+        if(classValue[i] == "상세정보"){
+          td.innerHTML = "<button class='orangeButton' onclick='adminDetailClick(event)'>" + classValue[i] + "</button>";
+        } else if(classValue[i] == "수정"){
+            td.innerHTML = "<button class='orangeButton' onclick='adminUpdateClick(event)'>" + classValue[i] + "</button>";        	
+        }else if(classValue[i] == "숨김"){ 
+          td.innerHTML = "<button class='purpleButton' onclick='adminBlindClick(event)'>" + classValue[i] + "</button>";
         } else {
           td.innerHTML = tableField[i];
         }
@@ -233,8 +238,7 @@
     }
     //검색어를 입력하고 검색 버튼을 눌렀을 때 실행되는 함수
     function adminSearchClick(){
-    	console.log("search");
-      const adminCategory = document.getElementById("buttonFlag").innerHTML;
+      const adminCategory = document.getElementById("buttonFlag");
       const adminFind = document.getElementById("adminFind").value;
       if(adminFind == ""){
     	  alert("검색어를 입력해주세요.");
@@ -243,12 +247,11 @@
 	    	 type:"GET",
 	    	 url:"/adminSearch",
 	    	 data:{
-   			 	"adminFind":adminFind,
-   			 	"adminCategory":adminCategory	 
+	    		 "adminFind":adminFind, //검색 결과
+	    		 "adminCategory":adminCategory //
 	    	 },
 	    	 dataType:"JSON",
 	    	 success:function(data){
-	    		 console.log(data);
 	    	      switch(adminCategory){
 	    	        case "eat":{
 	    	          const theadValue = ["번호", "가게명", "아이돌 번호", "회원번호", "날짜", "상세정보"];
@@ -270,7 +273,6 @@
 	    	            let tbodyValue = [user_idx, user_id, user_nick, user_name, user_birth];
 	    	            adminTbody.append(adminMakeTable(tbodyValue, theadValue));
 	    	          }
-	    	          break;
 	    	        }
 	    	        case "review":{
 	    	          const theadValue = ["리뷰번호", "가게명", "회원번호", "리뷰내용", "작성일", "상세정보"];
@@ -281,7 +283,6 @@
 	    	            let tbodyValue = [rev_idx, eat_name, user_idx, rev_content, rev_date];
 	    	            adminTbody.append(adminMakeTable(tbodyValue, theadValue));
 	    	          }
-	    	          break;
 	    	        }
 	    	        case "idol":{
 	    	          const theadValue = ["아이돌 번호", "그룹명", "이름", "수정", "숨김"];
@@ -293,7 +294,6 @@
 	    	            adminTbody.append(adminMakeTable(tbodyValue, theadValue));
 	    	          }
 	    	        }
-	    	        break;
 	    	      }	 
 	    	 },
 	    	 error:function(err){
@@ -308,6 +308,7 @@
         document.querySelectorAll(".adminButton").forEach((value) => {	
           value.style.backgroundColor = "#e7e7e7";
           value.addEventListener("mouseover", function(){
+            console.log(this);
             this.style.backgroundColor = "#8DA1FB";
           });
           value.addEventListener("mouseout", function(){
@@ -316,10 +317,103 @@
             } else {
               this.style.backgroundColor = "#e7e7e7";
             }
-          })
+          });
         });
-      }
+    }
+	function adminDetailClick(event){
+	    const buttonFlag = document.getElementById("buttonFlag").innerHTML;
+	    switch(buttonFlag){
+		    case "eat":{
+				/* $.ajax({
+					type:"GET",
+					url:"/adminEatDetail",
+					data:{
+						"eat_idx":event.target.parentNode.parentNode.firstChild.innerHTML
+					},
+					success:function(result){
+						console.log(result);
+						window.location.href = "/eatDetail.go";
+					},
+					error:function(err){
+						console.log("adminDetailClick", err);
+						if(err) throw err;
+					}
+				}); */
+				window.location.href = "/eatDetail.go?eat_idx="+event.target.parentNode.parentNode.firstChild.innerHTML;
+				//event.target.setAttribute("href", "/eatDetail.go?eat_idx="+event.target.parentNode.parentNode.firstChild.innerHTML);
+			    break;	
+		    }
+			case "member":{
+				$.ajax({
+					type:"GET",
+					url:"/adminMemberDetail",
+					data:{
+						"user_idx":event.target.parentNode.parentNode.firstChild.innerHTML
+					},
+					success:function(result){
+						console.log(result);
+						window.location.href = "/memberDetail.go";
+					},
+					error:function(err){
+						console.log("adminDetailClick", err);
+						if(err) throw err;
+					}
+				});
+				break;		    	
+		    }
+			case "review":{
+				$.ajax({
+					type:"GET",
+					url:"/adminReviewDetail",
+					data:{
+						"rev_idx":event.target.parentNode.parentNode.firstChild.innerHTML
+					},
+					success:function(data){
+						console.log(data);
+					},
+					error:function(err){
+						console.log("adminDetailClick", err);
+						if(err) throw err;
+					}
+				});
+				break;		    	
+		    }
+	    }
 
+	}
+	
+	function adminUpdateClick(event){
+		$.ajax({
+			type:"GET",
+			url:"",
+			data:{
+				"idol_idx":event.target.parentNode.parentNode.firstChild.innerHTML
+			},
+			success:function(result){
+				
+			},
+			error:function(err){
+				console.log("adminDetailClick", err);
+				if(err) throw err;
+			}
+		});		
+	}
+	function adminBlindClick(event){
+		$.ajax({
+			type:"GET",
+			url:"",
+			data:{
+				"idol_idx":event.target.parentNode.parentNode.firstChild.innerHTML
+			},
+			success:function(result){
+				
+			},
+			error:function(err){
+				console.log("adminDetailClick", err);
+				if(err) throw err;
+			}
+		});
+	}
     //adminEatClick();
   </script>
 </body>

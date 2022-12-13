@@ -70,12 +70,19 @@
       </div>
    </main>
    <script>
-      function idolAddSubmit(e){
-         const idolAddGroup = document.getElementById("idolAddGroup").value;
-         const idolAddName = document.getElementById("idolAddName").value;
-         const idolImgName = document.getElementById("idolImgName").value;
-         const idolMarkerName = document.getElementById("idolMarkerName").value;
-         
+	//전역변수
+     let idolAddGroup = document.getElementById("idolAddGroup").value;
+	 let idolAddName = document.getElementById("idolAddName").value;
+	 let idolImgName = document.getElementById("idolImgName").value;
+	 let idolMarkerName = document.getElementById("idolMarkerName").value;
+ 
+	 function idolAddReset(){
+		 idolAddGrop = "";
+		 idolAddName = "";
+		 idolImgName = "";
+		 idolMarkerName = "";
+	 }
+	 function idolAddSubmit(e){
          if(idolAddGroup == "" || idolAddName == "" || idolImgName == "" || idolMarkerName == ""){
             alert("폼 내용을 모두 채워주세요.");            
             e.preventDefault();
@@ -93,6 +100,7 @@
     	  if(!confirm("아이돌 추가를 취소하시겠습니까?")){
     		  return;
     	  }else{
+    		  idolAddReset();
     		  window.location.href = "/";
     	  }
       }
@@ -115,6 +123,7 @@
          reader.readAsDataURL(event.target.files[0]);
       }
       
+      idolAddReset();
    </script>
 </body>
 </html>

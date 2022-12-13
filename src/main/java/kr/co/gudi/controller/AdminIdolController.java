@@ -30,28 +30,7 @@ public class AdminIdolController {
 
 	//000.move 로 요청이 오면 000.jsp 로 보내는 컨트롤러
 	// 매개변수가 달라서 메소드명이 같아도 동작함(오버라이드)
-	@RequestMapping(value = "/{page}.go")
-	public String pageMove(@PathVariable String page) {
-		logger.info("page move : "+page);
-		
-		return page;
-	}
 	
-	@RequestMapping(value = "{root}/{page}.go")
-	public String pageMove(@PathVariable String root, @PathVariable String page) {
-		logger.info("page move : {}/{}",root,page);
-		
-		return root+"/"+page;
-	}
-	
-	@RequestMapping(value = "{root}/{sub}/{page}.go")
-	public String pageMove(@PathVariable String root, 
-			@PathVariable String sub,
-			@PathVariable String page) {
-		logger.info("page move : {}/{}/{}",root,sub,page);
-		
-		return root+"/"+sub+"/"+page;
-	}
 
 	
 	

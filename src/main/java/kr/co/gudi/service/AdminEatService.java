@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.gudi.dao.AdminDAO;
 import kr.co.gudi.dto.EatDTO;
@@ -24,14 +25,16 @@ public class AdminEatService {
 		
 		return dao.eatList();
 	}
-	public HashMap<String, Object> adminEatDetail(String eat_idx) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
+	public ModelAndView adminEatDetail(String eat_idx) {
+		
 		EatDTO eatUser = dao.eatUser(eat_idx);
 		EatDTO eatData = dao.eatData(eat_idx);
-		map.put("eatUser", eatUser);	
-		map.put("eatData", eatData);	
+		ModelAndView mav = new ModelAndView();	
+		mav.addObject("eatUser", eatUser);
+		mav.addObject("eatData", eatData);
+		mav.setViewName("eatDetail");
 		
-		return map;
+		return mav;
 	}
 
 	

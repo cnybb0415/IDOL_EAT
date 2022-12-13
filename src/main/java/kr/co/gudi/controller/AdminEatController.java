@@ -42,9 +42,20 @@ public class AdminEatController {
 		return map; 
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/adminEatDetail")
-	public HashMap<String, Object> adminEatDetail(@RequestParam String eat_idx) {
+	
+	
+//	@ResponseBody
+//	@RequestMapping(value = "/adminEatDetail")
+//	public HashMap<String, Object> adminEatDetail(@RequestParam String eat_idx) {
+//		
+//		
+//		return service.adminEatDetail(eat_idx);
+//	}
+	
+	@RequestMapping(value = "/eatDetail.go")
+	public ModelAndView adminEatDetail(String eat_idx) {
+		
+		logger.info("idx : "+eat_idx);
 		
 		
 		return service.adminEatDetail(eat_idx);
