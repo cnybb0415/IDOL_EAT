@@ -1,39 +1,42 @@
 package kr.co.gudi.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import kr.co.gudi.dao.AdminDAO;
 import kr.co.gudi.dto.EatDTO;
 import kr.co.gudi.dto.IdolDTO;
+import kr.co.gudi.dto.ReviewDTO;
+import kr.co.gudi.dto.UserDTO;
 
 @Service
-public class AdminEatService {
+public class AdminSearchService {
 
 	@Autowired AdminDAO dao;
 	Logger logger = LoggerFactory.getLogger(getClass());
 	@Value("${file.location}") private String root;
-	public ArrayList<EatDTO> eatList() {
-		
-		return dao.eatList();
+	
+	public ArrayList<ReviewDTO> revSearch(String adminFind) {
+		logger.info("seach : "+adminFind);
+		return dao.revSearch(adminFind);
 	}
-	public HashMap<String, Object> adminEatDetail(String eat_idx) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		EatDTO eatUser = dao.eatUser(eat_idx);
-		EatDTO eatData = dao.eatData(eat_idx);
-		map.put("eatUser", eatUser);	
-		map.put("eatData", eatData);	
+	public ArrayList<EatDTO> eatSearch(String adminFind) {
 		
-		return map;
+		return dao.eatSearch(adminFind);
+	}
+	public ArrayList<UserDTO> memSearch(String adminFind) {
+		
+		return dao.memSearch(adminFind);
+	}
+	public ArrayList<IdolDTO> idolSearch(String adminFind) {
+		
+		return dao.idolSearch(adminFind);
 	}
 
-	
 
 }

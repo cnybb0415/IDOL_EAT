@@ -8,32 +8,31 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import kr.co.gudi.dao.AdminDAO;
 import kr.co.gudi.dto.EatDTO;
 import kr.co.gudi.dto.IdolDTO;
+import kr.co.gudi.dto.UserDTO;
 
 @Service
-public class AdminEatService {
+public class AdminUserService {
 
 	@Autowired AdminDAO dao;
 	Logger logger = LoggerFactory.getLogger(getClass());
 	@Value("${file.location}") private String root;
-	public ArrayList<EatDTO> eatList() {
+
+	public ArrayList<UserDTO> userList() {
 		
-		return dao.eatList();
-	}
-	public HashMap<String, Object> adminEatDetail(String eat_idx) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		EatDTO eatUser = dao.eatUser(eat_idx);
-		EatDTO eatData = dao.eatData(eat_idx);
-		map.put("eatUser", eatUser);	
-		map.put("eatData", eatData);	
-		
-		return map;
+		return dao.userList();
 	}
 
+	public HashMap<String, Object> adminMemberDetail(String user_idx) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		UserDTO userDetail = dao.userDetail(user_idx);
+		
+		map.put("userDetail", userDetail);
+		return map;
+	}
 	
 
 }

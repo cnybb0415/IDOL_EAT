@@ -70,7 +70,7 @@ public class AdminIdolController {
 	public HashMap<String, Object> idolList() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		ArrayList<IdolDTO> adminIdolList = service.idolList();
-		map.put("adminIdolList", adminIdolList);	
+		map.put("adminIdolData", adminIdolList);	
 		logger.info("보내주기 : "+map);
 
 		return map; 

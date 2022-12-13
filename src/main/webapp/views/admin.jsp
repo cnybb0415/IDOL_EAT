@@ -18,14 +18,14 @@
       <div class="adminContent">
         <div class="adminSearch">
           <input type="text" name="adminFind" id="adminFind" placeholder="검색어를 입력하세요">
-          <div title="검색아이콘"></div>
+          <div title="검색아이콘" onclick="adminSearchClick()"></div>
         </div>
-        <div class="adminButton">
+        <div class="adminButtonArea">
           <div>
-            <button onclick="adminEatClick()">맛집관리</button>
-            <button onclick="adminMemberClick()">회원관리</button>
-            <button onclick="adminReviewClick()">리뷰관리</button>
-            <button onclick="adminIdolClick()">아이돌 추가</button>
+            <button class="adminButton" onclick="adminEatClick(event)">맛집관리</button>
+            <button class="adminButton" onclick="adminMemberClick(event)">회원관리</button>
+            <button class="adminButton" onclick="adminReviewClick(event)">리뷰관리</button>
+            <button class="adminButton" onclick="adminIdolClick(event)">아이돌 추가</button>
             <p id="buttonFlag"></p>
           </div>
           <div>
@@ -40,6 +40,7 @@
   </div>
 
   <script>
+  	//각 필드의 넓이를 담당하는 class를 적용하는 함수
     function adminClassSelector(fieldName){
       let classSelect = "";
       switch(fieldName){
@@ -86,13 +87,7 @@
       }
       return classSelect;
     }
-
-    /*let value = [
-      {"eat_idx":"2222222", "idol_idx":"2222222", "eat_adress":"수원서울안산안양오산화성병점", "eat_name":"가게이름인데어디까지길어지는지알아맞춰보아요", "eat_date":"2022.12.25", "user_idx":"2222222", "eat_source":"유퀴즈온더블럭", "eat_state":"0", "user_idx":"2222222"},
-      {"eat_idx":"2222222", "idol_idx":"2222222", "eat_adress":"수원서울안산안양오산화성병점", "eat_name":"가게이름인데어디까지길어지는지알아맞춰보아요", "eat_date":"2022.12.25", "user_idx":"2222222", "eat_source":"유퀴즈온더블럭", "eat_state":"0", "user_idx":"2222222"},
-      {"eat_idx":"2222222", "idol_idx":"2222222", "eat_adress":"수원서울안산안양오산화성병점", "eat_name":"가게이름인데어디까지길어지는지알아맞춰보아요", "eat_date":"2022.12.25", "user_idx":"2222222", "eat_source":"유퀴즈온더블럭", "eat_state":"0", "user_idx":"2222222"}
-    ];*/
-
+	//테이블 밑작업 함수, 필드명 배열을 받아서 thead를 작성
     function adminTableBase(theadValue){
       const table = document.createElement("table");
       const thead = document.createElement("thead");
@@ -114,16 +109,16 @@
         adminTheadTr.append(th);
       }
     }
-
+	//테이블의 행을 만드는 함수
     function adminMakeTable(tableField, classValue){ //tableField는 배열 형태
       const tr = document.createElement("tr");
       for(let i = 0; i<classValue.length; i++){ 
         let td = document.createElement("td"); 
         td.setAttribute("class", adminClassSelector(classValue[i]));
         if(classValue[i] == "상세정보" || classValue[i] == "수정"){
-          td.innerHTML = `<button class=orangeButton>${classValue[i]}</button>`;
+          td.innerHTML = "<button class='orangeButton'>" + classValue[i] + "</button>";
         } else if(classValue[i] == "숨김"){ 
-          td.innerHTML = `<button class=purpleButton>${classValue[i]}</button>`;
+          td.innerHTML = "<button class='purpleButton'>" + classValue[i] + "</button>";
         } else {
           td.innerHTML = tableField[i];
         }
@@ -131,96 +126,199 @@
       }
       return tr;
     }
-
-    function adminEatClick(){
+	//맛집정보 버튼을 눌렀을 때 실행되는 함수
+    function adminEatClick(event){
       const buttonFlag = document.getElementById("buttonFlag");
       buttonFlag.innerHTML = "eat";
+      adminButton(event.target);
+      event.target.style.backgroundColor = "#8DA1FB";
       const theadValue = ["번호", "가게명", "아이돌 번호", "회원번호", "날짜", "상세정보"];
       adminTableBase(theadValue);
       const adminTbody = document.querySelector("#adminTable>table>tbody");
-      /*fetch("/")
-        .then(res => res.json())
-        .then(adminEatData => {
-          console.log(data);
-        })
-        .catch(err => {
-          console.log("adminEatClick fetch error", err);
-        })*/
-      for(let i = 0; i<value.length; i++){
-        let {eat_idx, eat_name, idol_idx, user_idx, eat_date} = value[i];
-        let tbodyValue = [eat_idx, eat_name, idol_idx, user_idx, eat_date];
-        adminTbody.append(adminMakeTable(tbodyValue, theadValue));
-      }
+      $.ajax({
+    	  type:"GET",
+    	  url:"/adminEat",
+    	  dataType:"JSON",
+    	  success:function(data){
+    	      for(let i = 0; i<data.adminEatData.length; i++){
+    	          let {eat_idx, eat_name, idol_idx, user_idx, eat_date} = data.adminEatData[i];
+    	          let tbodyValue = [eat_idx, eat_name, idol_idx, user_idx, eat_date];
+    	          adminTbody.append(adminMakeTable(tbodyValue, theadValue));
+    	        }	  
+    	  },
+    	  error:function(err){
+    		  console.log("adminEatClick", err);
+    		  if(err) throw err;
+    	  }
+      });
     }
-
-    function adminMemberClick(){
+	//회원정보 버튼을 눌렀을 때 실행되는 함수
+    function adminMemberClick(event){
       const buttonFlag = document.getElementById("buttonFlag");
       buttonFlag.innerHTML = "member";
+      adminButton(event.target);
+      event.target.style.backgroundColor = "#8DA1FB";
       const theadValue = ["회원번호", "아이디", "닉네임", "이름", "출생연도", "상세정보"];
       adminTableBase(theadValue);
       const adminTbody = document.querySelector("#adminTable>table>tbody");
-      for(let i = 0; i<value.length; i++){
-        let {user_idx, user_id, user_nick, user_name, user_birth} = value[i];
-        let tbodyValue = [user_idx, user_id, user_nick, user_name, user_birth];
-        adminTbody.append(adminMakeTable(tbodyValue, theadValue));
-      }
+      $.ajax({
+    	  type:"GET",
+    	  url:"/adminMember",
+    	  dataType:"JSON",
+    	  success:function(data){
+    	      for(let i = 0; i<data.adminMemberData.length; i++){
+    	          let {user_idx, user_id, user_nick, user_name, user_birth} = data.adminMemberData[i];
+    	          let tbodyValue = [user_idx, user_id, user_nick, user_name, user_birth];
+    	          adminTbody.append(adminMakeTable(tbodyValue, theadValue));
+    	        }  
+    	  },
+      	  error:function(err){
+      		  console.log("adminMemberClick", err);
+      		  if(err) throw err;
+      	  }
+      });
     }
-
-    function adminReviewClick(){
+	//리뷰정보를 눌렀을 때 실행되는 함수
+    function adminReviewClick(event){
       const buttonFlag = document.getElementById("buttonFlag");
       buttonFlag.innerHTML = "review";
+      adminButton(event.target);
+      event.target.style.backgroundColor = "#8DA1FB";
       const theadValue = ["리뷰번호", "가게명", "회원번호", "리뷰내용", "작성일", "상세정보"];
       adminTableBase(theadValue);
       const adminTbody = document.querySelector("#adminTable>table>tbody");
-      for(let i = 0; i<value.length; i++){
-        let {rev_idx, eat_name, user_idx, rev_content, rev_date} = value[i];
-        let tbodyValue = [rev_idx, eat_name, user_idx, rev_content, rev_date];
-        adminTbody.append(adminMakeTable(tbodyValue, theadValue));
-      }
-    }
+	  $.ajax({
+	   	  type:"GET",
+	      url:"/adminReview",
+	      dataType:"JSON",
+	      success:function(data){
+	          for(let i = 0; i<data.adminReviewData.length; i++){
+	              let {rev_idx, eat_name, user_idx, rev_content, rev_date} = data.adminReviewData[i];
+	              let tbodyValue = [rev_idx, eat_name, user_idx, rev_content, rev_date];
+	              adminTbody.append(adminMakeTable(tbodyValue, theadValue));
+	            }	    	  
+	      },
+	  	  error:function(err){
+	  		  console.log("adminReviewClick", err);
+	  		  if(err) throw err;
+	  	  }
+	  });
 
-    function adminIdolClick(){
+    }
+	//아이돌 정보 버튼을 눌렀을 때 실행되는 함수
+    function adminIdolClick(event){
       const buttonFlag = document.getElementById("buttonFlag");
       buttonFlag.innerHTML = "idol";
+      adminButton(event.target);
+      event.target.style.backgroundColor = "#8DA1FB";
+      console.log(event.target);
       const theadValue = ["아이돌 번호", "그룹명", "이름", "수정", "숨김"];
       adminTableBase(theadValue);
       const adminTbody = document.querySelector("#adminTable>table>tbody");
-      /*fetch("http://localhost:8080/idolList", {
-		headers: {
-			Accept:"application / json"
-		},
-		method:"GET"
-      })
-      .then((response) => {
-    	console.log(response);
-      })
-      .then((data) => {
-        console.log(data.adminIdolData);
-        //console.log("data: " + data);
-      })
-      .catch(err => {
-        console.log("adminIdolClick error", err);
-        if(err) throw err;
-      });*/
       $.ajax({
     	 type:"GET",
     	 url:"/idolList",
     	 dataType:"JSON",
     	 success:function(data){
-    		 let {idol_idx} = data.adminIdolList[0];
-    		 console.log(idol_idx);
+    		  for(let i = 0; i<data.adminIdolData.length; i++){
+    	        let {idol_idx, idol_group, idol_name} = data.adminIdolData[i];
+    	        let tbodyValue = [idol_idx, idol_group, idol_name];
+    	        adminTbody.append(adminMakeTable(tbodyValue, theadValue));
+    	      }
     	 },
       	 error:function(err){
       		 console.log(err);
       	 }
       });
-      /*
-      for(let i = 0; i<value.length; i++){
-        let {idol_idx, idol_group, idol_name} = value[i];
-        let tbodyValue = [idol_idx, idol_group, idol_name];
-        adminTbody.append(adminMakeTable(tbodyValue, theadValue));
-      }*/
     }
+    //검색어를 입력하고 검색 버튼을 눌렀을 때 실행되는 함수
+    function adminSearchClick(){
+    	console.log("search");
+      const adminCategory = document.getElementById("buttonFlag").innerHTML;
+      const adminFind = document.getElementById("adminFind").value;
+      if(adminFind == ""){
+    	  alert("검색어를 입력해주세요.");
+      }else{
+	      $.ajax({
+	    	 type:"GET",
+	    	 url:"/adminSearch",
+	    	 data:{
+   			 	"adminFind":adminFind,
+   			 	"adminCategory":adminCategory	 
+	    	 },
+	    	 dataType:"JSON",
+	    	 success:function(data){
+	    		 console.log(data);
+	    	      switch(adminCategory){
+	    	        case "eat":{
+	    	          const theadValue = ["번호", "가게명", "아이돌 번호", "회원번호", "날짜", "상세정보"];
+	    	          adminTableBase(theadValue);
+	    	          const adminTbody = document.querySelector("#adminTable>table>tbody");
+	    	          for(let i = 0; i<data.adminSearchData.length; i++){
+	    	            let {eat_idx, eat_name, idol_idx, user_idx, eat_date} = data.adminSearchData[i];
+	    	            let tbodyValue = [eat_idx, eat_name, idol_idx, user_idx, eat_date];
+	    	            adminTbody.append(adminMakeTable(tbodyValue, theadValue));
+	    	          }
+	    	          break;
+	    	        }
+	    	        case "member":{
+	    	          const theadValue = ["회원번호", "아이디", "닉네임", "이름", "출생연도", "상세정보"];
+	    	          adminTableBase(theadValue);
+	    	          const adminTbody = document.querySelector("#adminTable>table>tbody");
+	    	          for(let i = 0; i<data.adminSearchData.length; i++){
+	    	            let {user_idx, user_id, user_nick, user_name, user_birth} = data.adminSearchData[i];
+	    	            let tbodyValue = [user_idx, user_id, user_nick, user_name, user_birth];
+	    	            adminTbody.append(adminMakeTable(tbodyValue, theadValue));
+	    	          }
+	    	          break;
+	    	        }
+	    	        case "review":{
+	    	          const theadValue = ["리뷰번호", "가게명", "회원번호", "리뷰내용", "작성일", "상세정보"];
+	    	          adminTableBase(theadValue);
+	    	          const adminTbody = document.querySelector("#adminTable>table>tbody");
+	    	          for(let i = 0; i<data.adminSearchData.length; i++){
+	    	            let {rev_idx, eat_name, user_idx, rev_content, rev_date} = data.adminSearchData[i];
+	    	            let tbodyValue = [rev_idx, eat_name, user_idx, rev_content, rev_date];
+	    	            adminTbody.append(adminMakeTable(tbodyValue, theadValue));
+	    	          }
+	    	          break;
+	    	        }
+	    	        case "idol":{
+	    	          const theadValue = ["아이돌 번호", "그룹명", "이름", "수정", "숨김"];
+	    	          adminTableBase(theadValue);
+	    	          const adminTbody = document.querySelector("#adminTable>table>tbody");
+	    	          for(let i = 0; i<data.adminSearchData.length; i++){
+	    	            let {idol_idx, idol_group, idol_name} = data.adminSearchData[i];
+	    	            let tbodyValue = [idol_idx, idol_group, idol_name];
+	    	            adminTbody.append(adminMakeTable(tbodyValue, theadValue));
+	    	          }
+	    	        }
+	    	        break;
+	    	      }	 
+	    	 },
+	    	 error:function(err){
+	    		 console.log("adminSearchClick", err);
+	    		 if(err) throw err;
+	    	 }
+	      });
+	    }
+    }
+    //버튼 css 함수, 호버와 배경 바꾸기
+    function adminButton(target){
+        document.querySelectorAll(".adminButton").forEach((value) => {	
+          value.style.backgroundColor = "#e7e7e7";
+          value.addEventListener("mouseover", function(){
+            this.style.backgroundColor = "#8DA1FB";
+          });
+          value.addEventListener("mouseout", function(){
+            if(this == target){
+              this.style.backgroundColor = "#8DA1FB";
+            } else {
+              this.style.backgroundColor = "#e7e7e7";
+            }
+          })
+        });
+      }
 
     //adminEatClick();
   </script>

@@ -292,6 +292,8 @@ html .idolAddWrap .idolAddWrap2 .idolAddBox > form .idolAddInfo .idolAddInfoBtn 
   border-radius: 4rem;
   color: #fff;
   background-color: #D4D4D4;
+  text-align: center;
+  line-height: 8rem;
 }
 html .idolAddWrap .idolAddWrap2 .idolAddBox > form .idolAddInfo .idolAddInfoBtn .idolAddInfoBtn1:hover, body .idolAddWrap .idolAddWrap2 .idolAddBox > form .idolAddInfo .idolAddInfoBtn .idolAddInfoBtn1:hover {
   background-color: #667CDD;

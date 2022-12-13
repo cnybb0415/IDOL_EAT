@@ -20,35 +20,29 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.gudi.dto.EatDTO;
 import kr.co.gudi.dto.IdolDTO;
+import kr.co.gudi.dto.ReviewDTO;
 import kr.co.gudi.dto.UserDTO;
 import kr.co.gudi.service.AdminEatService;
 import kr.co.gudi.service.AdminIdolService;
+import kr.co.gudi.service.AdminReviewService;
 import kr.co.gudi.service.AdminUserService;
 
 @Controller
-public class AdminUserController {
+public class AdminReviwController {
 	
 	Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@Autowired AdminUserService service;
+	@Autowired AdminReviewService service;
 	
 	@ResponseBody
-	@RequestMapping(value = "/adminMember")
-	public HashMap<String, Object> userList() {
+	@RequestMapping(value = "/adminReview")
+	public HashMap<String, Object> reviewList() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		ArrayList<UserDTO> adminUserList = service.userList();
-		map.put("adminMemberData", adminUserList);	
+		ArrayList<ReviewDTO> adminReviewList = service.reviewList();
+		map.put("adminReviewData", adminReviewList);	
 		logger.info("User 보내주기 : "+map);
 
 		return map; 
-	}
-	
-	@ResponseBody
-	@RequestMapping(value = "/adminMemberDetail")
-	public HashMap<String, Object> adminMemberDetail(@RequestParam String user_idx) {
-		
-		
-		return service.adminMemberDetail(user_idx);
 	}
 	
 	

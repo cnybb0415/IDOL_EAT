@@ -22,6 +22,7 @@ import kr.co.gudi.dto.EatDTO;
 import kr.co.gudi.dto.IdolDTO;
 import kr.co.gudi.service.AdminEatService;
 import kr.co.gudi.service.AdminIdolService;
+import kr.co.gudi.service.AdminUserService;
 
 @Controller
 public class AdminEatController {
@@ -31,14 +32,22 @@ public class AdminEatController {
 	@Autowired AdminEatService service;
 	
 	@ResponseBody
-	@RequestMapping(value = "/eatList.do")
+	@RequestMapping(value = "/adminEat")
 	public HashMap<String, Object> eatList() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		ArrayList<EatDTO> adminEatList = service.eatList();
-		map.put("adminEatList", adminEatList);	
+		map.put("adminEatData", adminEatList);	
 		logger.info("Eat 보내주기 : "+map);
 
 		return map; 
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/adminEatDetail")
+	public HashMap<String, Object> adminEatDetail(@RequestParam String eat_idx) {
+		
+		
+		return service.adminEatDetail(eat_idx);
 	}
 	
 	

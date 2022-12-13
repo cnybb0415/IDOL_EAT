@@ -61,7 +61,8 @@
                      </div>
                   </div>
                   <div class="idolAddInfoBtn">
-                     <button class="idolAddInfoBtn1">취소</button><input type="submit" id="idolAddInfoBtn2" class="idolAddInfoBtn2" value="추가하기">
+                     <div class="idolAddInfoBtn1" onclick="idolAddCancel()">취소</div>
+                     <input type="submit" id="idolAddInfoBtn2" class="idolAddInfoBtn2" value="추가하기">
                   </div>
                </div>
             </form>
@@ -80,8 +81,20 @@
             e.preventDefault();
          }
          else{
-            //confirm()
+        	 if(!confirm("해당 내용으로 아이돌을 추가하시겠습니까?")){
+        		 e.preventDefault();
+        	 }else{
+        		 return;
+        	 }
          }
+      }
+      
+      function idolAddCancel(){
+    	  if(!confirm("아이돌 추가를 취소하시겠습니까?")){
+    		  return;
+    	  }else{
+    		  window.location.href = "/";
+    	  }
       }
 
       function idolImgChange(event){
