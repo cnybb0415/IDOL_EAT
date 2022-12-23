@@ -46,29 +46,29 @@
 	
 	<select id="revSearch" resultType="ReviewDTO">
 		SELECT * FROM review r, eat e
-		WHERE (e.eat_name LIKE #{param1} or r.rev_idx LIKE #{param1}
-		or r.user_idx LIKE #{param1} or r.rev_content LIKE #{param1} or r.rev_date LIKE #{param1})
+		WHERE (e.eat_name like CONCAT('%', #{param1}, '%') or r.rev_idx like CONCAT('%', #{param1}, '%')
+		or r.user_idx like CONCAT('%', #{param1}, '%') or r.rev_content like CONCAT('%', #{param1}, '%') or r.rev_date like CONCAT('%', #{param1}, '%'))
 		and r.eat_idx = e.eat_idx
 		ORDER BY r.rev_idx;
 	</select>
 	
 	<select id="idolSearch" resultType="IdolDTO">
 		SELECT * FROM idol 
-		WHERE idol_name LIKE #{param1} or idol_group LIKE #{param1} or idol_idx LIKE #{param1} 
+		WHERE idol_name like CONCAT('%', #{param1}, '%') or idol_group like CONCAT('%', #{param1}, '%')} or idol_idx like CONCAT('%', #{param1}, '%') 
 		ORDER BY idol_idx;
 	</select>
 	
 	<select id="eatSearch" resultType="EatDTO">
 		SELECT * FROM eat 
-		WHERE eat_name LIKE #{param1} or idol_idx LIKE #{param1} or eat_idx LIKE #{param1} 
-		or user_idx LIKE #{param1} or eat_date LIKE #{param1} 
+		WHERE eat_name like CONCAT('%', #{param1}, '%') or idol_idx like CONCAT('%', #{param1}, '%') or eat_idx like CONCAT('%', #{param1}, '%') 
+		or user_idx like CONCAT('%', #{param1}, '%') or eat_date like CONCAT('%', #{param1}, '%') 
 		ORDER BY eat_idx;
 	</select>
 	
 	<select id="memSearch" resultType="UserDTO">
 		SELECT * FROM user 
-		WHERE user_idx LIKE #{param1} or user_nick LIKE #{param1} or user_idx LIKE #{param1} 
-		or user_name LIKE #{param1} or user_birth LIKE #{param1} 
+		WHERE user_idx like CONCAT('%', #{param1}, '%') or user_nick like CONCAT('%', #{param1}, '%') or user_idx like CONCAT('%', #{param1}, '%') 
+		or user_name like CONCAT('%', #{param1}, '%') or user_birth like CONCAT('%', #{param1}, '%') 
 		ORDER BY user_idx;
 	</select>
 	
