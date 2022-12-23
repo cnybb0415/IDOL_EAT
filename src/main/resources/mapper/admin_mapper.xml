@@ -29,19 +29,19 @@
 	</update>
 	
 	<select id="idolList" resultType="IdolDTO">
-		SELECT * FROM idol WHERE idol_state=1 ORDER BY idol_idx DESC
+		SELECT * FROM idol ORDER BY idol_idx DESC
 	</select>
 	
 	<select id="eatList" resultType="EatDTO">
-		SELECT * FROM eat WHERE eat_state=1 ORDER BY eat_idx DESC
+		SELECT * FROM eat ORDER BY eat_idx DESC
 	</select>
 	
 	<select id="userList" resultType="UserDTO">
-		SELECT * FROM user WHERE user_state=1 ORDER BY user_idx
+		SELECT * FROM user ORDER BY user_idx
 	</select>
 	
 	<select id="reviewList" resultType="ReviewDTO">
-		SELECT * FROM review r, eat e  WHERE rev_state=1 and r.eat_idx = e.eat_idx  ORDER BY rev_idx;
+		SELECT * FROM review r, eat e  WHERE r.eat_idx = e.eat_idx  ORDER BY rev_idx;
 	</select>
 	
 	<select id="revSearch" resultType="ReviewDTO">
@@ -85,6 +85,33 @@
 	<select id="userDetail" resultType="UserDTO">
 		select * from user 
 			where user_idx = #{param1};
+	</select>
+	
+	<select id="reviewDetail" resultType="ReviewDTO">
+		select * from review 
+			where rev_idx = #{param1};
+	</select>
+	
+	<update id="update" parameterType="String">
+		UPDATE idol SET 	
+			idol_group = #{idol_group}
+			,idol_name = #{idol_name}
+			,idol_mark_ori = #{idol_mark_Ori} 
+			,idol_mark_new = #{markNewFileName}
+			,idol_img_ori = #{idol_img_Ori} 
+			,idol_img_new = #{imgNewFileName}
+		WHERE idol_idx = #{idol_idx}
+		
+	</update>
+	
+	<select id="eatDate" resultType="String">
+		select eat_date from eat  
+			where eat_idx = #{param1}
+	</select>
+	
+	<select id="idolUpdate" resultType="IdolDTO">
+		select * from idol 
+			where idol_idx = #{param1};
 	</select>
 	
 	

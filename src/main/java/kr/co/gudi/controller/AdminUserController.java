@@ -43,12 +43,23 @@ public class AdminUserController {
 		return map; 
 	}
 	
-	@ResponseBody
 	@RequestMapping(value = "/memberDetail.go")
-	public HashMap<String, Object> adminMemberDetail(@RequestParam String user_idx) {
+	public ModelAndView adminMemberDetail(String user_idx) {
+		
+		logger.info("detail idx : "+user_idx);
 		
 		
 		return service.adminMemberDetail(user_idx);
+	}
+	
+	@RequestMapping(value = "/memberBlindYes")
+	public ModelAndView memberBlindYes(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("blind params : {}",params);
+//		logger.info("idx : "+user_idx);
+		
+		
+		return null;
 	}
 	
 	

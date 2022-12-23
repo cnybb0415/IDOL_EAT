@@ -8,7 +8,7 @@ import org.apache.ibatis.type.Alias;
 public class EatDTO {   
    
    private int eat_idx;
-   private String eat_adress;
+   private String eat_address;
    private String eat_name;
    private Date eat_date;
    private String eat_source;
@@ -23,7 +23,7 @@ public class EatDTO {
    private int user_idx;
    private String user_id;
    private String user_pw;
-   private String user_adress;
+   private String user_address;
    private String user_nick;
    private String user_birth;
    private String user_name;
@@ -36,12 +36,7 @@ public class EatDTO {
    public void setEat_idx(int eat_idx) {
       this.eat_idx = eat_idx;
    }
-   public String getEat_adress() {
-      return eat_adress;
-   }
-   public void setEat_adress(String eat_adress) {
-      this.eat_adress = eat_adress;
-   }
+   
    public String getEat_name() {
       return eat_name;
    }
@@ -126,11 +121,18 @@ public String getUser_pw() {
 public void setUser_pw(String user_pw) {
 	this.user_pw = user_pw;
 }
-public String getUser_adress() {
-	return user_adress;
+
+public String getEat_address() {
+	return eat_address;
 }
-public void setUser_adress(String user_adress) {
-	this.user_adress = user_adress;
+public void setEat_address(String eat_address) {
+	this.eat_address = eat_address;
+}
+public String getUser_address() {
+	return user_address;
+}
+public void setUser_address(String user_address) {
+	this.user_address = user_address;
 }
 public String getUser_nick() {
 	return user_nick;

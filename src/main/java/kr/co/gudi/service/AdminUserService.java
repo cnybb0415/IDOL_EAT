@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.gudi.dao.AdminDAO;
 import kr.co.gudi.dto.EatDTO;
@@ -26,12 +27,14 @@ public class AdminUserService {
 		return dao.userList();
 	}
 
-	public HashMap<String, Object> adminMemberDetail(String user_idx) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		UserDTO userDetail = dao.userDetail(user_idx);
+	public ModelAndView adminMemberDetail(String user_idx) {
 		
-		map.put("userDetail", userDetail);
-		return map;
+		UserDTO userDetail = dao.userDetail(user_idx);
+		ModelAndView mav = new ModelAndView();	
+		mav.addObject("userDetail", userDetail);
+		mav.setViewName("memberDetail");
+		
+		return mav;
 	}
 	
 

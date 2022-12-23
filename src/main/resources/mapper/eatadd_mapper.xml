@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+<!-- 이 XML 을 어떤 interface 하고 연결 할 것인가 -->
+<mapper namespace="kr.co.gudi.dao.EatAddDAO">
+	<select id="EatAddIdolList" resultType="IdolDTO">
+		SELECT * FROM idol WHERE idol_state=1 ORDER BY idol_idx DESC
+	</select>
+
+
+	<insert id="eatAdd" parameterType="String">
+		INSERT into eat (idol_idx, eat_address, eat_name, user_idx, eat_source)
+		values(#{idol_idx},#{eat_adress},#{eat_name},#{user_idx},#{eat_source});
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

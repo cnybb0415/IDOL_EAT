@@ -14,17 +14,18 @@ public class ReviewDTO {
 	private int user_idx;
 	private int eat_idx;
 	private String eat_name;
-	private String eat_adress;
+	private String eat_address;
 	private Date eat_date;
 	private String eat_source;
 	private int eat_state;
 	private int idol_idx;
 	
-	public String getEat_adress() {
-		return eat_adress;
+	
+	public String getEat_address() {
+		return eat_address;
 	}
-	public void setEat_adress(String eat_adress) {
-		this.eat_adress = eat_adress;
+	public void setEat_address(String eat_address) {
+		this.eat_address = eat_address;
 	}
 	public Date getEat_date() {
 		return eat_date;

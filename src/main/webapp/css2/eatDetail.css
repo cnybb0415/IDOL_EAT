@@ -410,9 +410,9 @@ html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn1, body 
   background-color: #D4D4D4;
 }
 html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn1:hover, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn1:hover {
-  background-color: #667CDD;
+  background-color: #a1a1a1;
 }
-html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2 {
+html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2, html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBlind, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBlind {
   width: 32.6rem;
   height: 8rem;
   font-size: 2.4rem;
@@ -421,6 +421,12 @@ html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2, body 
   color: #fff;
   background-color: #8DA1FB;
 }
-html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2:hover, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2:hover {
+html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2:hover, html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBlind:hover, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBtn2:hover, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBlind:hover {
   background-color: #667CDD;
-}/*# sourceMappingURL=eat.css.map */
+}
+html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBlind, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBlind {
+  background-color: #D4D4D4;
+}
+html .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBlind:hover, body .eatWrap .eatWrap2 .eatBox > form .eatInfo2 .eatInfoBtn .eatInfoBlind:hover {
+  background-color: #a1a1a1;
+}/*# sourceMappingURL=eatDetail.css.map */

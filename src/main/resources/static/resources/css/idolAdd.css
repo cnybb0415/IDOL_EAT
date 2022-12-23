@@ -292,9 +292,11 @@ html .idolAddWrap .idolAddWrap2 .idolAddBox > form .idolAddInfo .idolAddInfoBtn 
   border-radius: 4rem;
   color: #fff;
   background-color: #D4D4D4;
+  text-align: center;
+  line-height: 8rem;
 }
 html .idolAddWrap .idolAddWrap2 .idolAddBox > form .idolAddInfo .idolAddInfoBtn .idolAddInfoBtn1:hover, body .idolAddWrap .idolAddWrap2 .idolAddBox > form .idolAddInfo .idolAddInfoBtn .idolAddInfoBtn1:hover {
-  background-color: #667CDD;
+  background-color: #a1a1a1;
 }
 html .idolAddWrap .idolAddWrap2 .idolAddBox > form .idolAddInfo .idolAddInfoBtn .idolAddInfoBtn2, body .idolAddWrap .idolAddWrap2 .idolAddBox > form .idolAddInfo .idolAddInfoBtn .idolAddInfoBtn2 {
   width: 37.3rem;

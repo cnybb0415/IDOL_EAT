@@ -45,6 +45,20 @@ public class AdminReviwController {
 		return map; 
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/adminReviewDetail")
+	public HashMap<String, Object> reviewDetail(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("params : {}",params);
+		String rev_idx = params.get("rev_idx");
+		logger.info("rev_idx : "+rev_idx);
+		ArrayList<ReviewDTO> adminReviewList = service.reviewDetail(rev_idx);
+		map.put("reviewDetail", adminReviewList);	
+		logger.info("User 보내주기 : "+map);
+		
+		return map; 
+	}
+	
 	
 	
 	

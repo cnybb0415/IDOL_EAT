@@ -8,7 +8,7 @@ public class UserDTO {
    private int user_idx;
    private String user_id;
    private String user_pw;
-   private String user_adress;
+   private String user_address;
    private String user_nick;
    private String user_birth;
    private String user_name;
@@ -33,13 +33,14 @@ public class UserDTO {
    public void setUser_pw(String user_pw) {
       this.user_pw = user_pw;
    }
-   public String getUser_adress() {
-      return user_adress;
-   }
-   public void setUser_adress(String user_adress) {
-      this.user_adress = user_adress;
-   }
-   public String getUser_nick() {
+  
+   public String getUser_address() {
+	return user_address;
+}
+public void setUser_address(String user_address) {
+	this.user_address = user_address;
+}
+public String getUser_nick() {
       return user_nick;
    }
    public void setUser_nick(String user_nick) {

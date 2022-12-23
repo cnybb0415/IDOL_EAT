@@ -55,6 +55,30 @@ public class AdminIdolController {
 		return map; 
 	}
 	
+	@RequestMapping(value = "/idolUpdate.go")
+	public ModelAndView idolUpdate(@RequestParam String idol_idx) {	
+
+		
+		return service.idolUpdate(idol_idx);
+	}
+	
+	@RequestMapping(value="/idolUpdate.do")
+	public String update(Model model, @RequestParam HashMap<String, String> params, 
+			MultipartFile idol_img_ori,MultipartFile idol_mark_ori) throws Exception {
+
+		logger.info("업데이트"+params);
+		String page = "idolUpdate";
+		logger.info("files : {}",idol_img_ori);
+		logger.info("files : {}",idol_mark_ori);
+		
+		logger.info("params : {}", params);
+//		HashMap<String, Object> map = service.update(params);
+		service.update(params,idol_img_ori,idol_mark_ori);
+//		service.write(params,inputIdolImg,inputIdolMark);
+		
+		return "redirect:/";
+	}
+	
 	
 	
 }

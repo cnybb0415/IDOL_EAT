@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.gudi.dao.AdminDAO;
+import kr.co.gudi.dto.EatDTO;
 import kr.co.gudi.dto.IdolDTO;
 
 
@@ -91,6 +92,59 @@ public class AdminIdolService {
 //		logger.info("idolData : "+adminIdolData);
 
 		return dao.idolList();
+	}
+
+	public void update(HashMap<String, String> params, 
+			MultipartFile idol_img_ori, MultipartFile idol_mark_ori) throws Exception {
+		
+		String idol_idx = params.get("idol_idx");
+		String idol_group = params.get("idol_group");
+		String idol_name = params.get("idol_name");
+		logger.info("update ldx = "+idol_idx);
+		String idol_img_Ori = idol_img_ori.getOriginalFilename();
+		String idol_mark_Ori = idol_mark_ori.getOriginalFilename();
+		logger.info(idol_img_Ori);
+		logger.info(idol_mark_Ori);
+		String imgext= idol_img_Ori.substring(idol_img_Ori.lastIndexOf("."));
+		String markext= idol_mark_Ori.substring(idol_mark_Ori.lastIndexOf("."));
+		
+		String imgNewFileName = System.currentTimeMillis()+imgext; 
+		Thread.sleep(1);
+		String MarkNewFileName = System.currentTimeMillis()+markext; 
+		//currentTimeMillis : 반환타입 long이라서 뒤에 문자열을 붙여 String타입으로 만들어줌
+		logger.info("imgnew: "+imgNewFileName);
+		logger.info("marknew: "+MarkNewFileName);
+		try {
+
+			//<3>파일 저장 순서
+			//1. uploadFile에서 bite 추출
+			byte[] arrImg = idol_img_ori.getBytes();
+			byte[] arrMark = idol_mark_ori.getBytes();
+			//2. 저장할 파일 위치 지정
+			Path imgpath = Paths.get(root+imgNewFileName);
+			Path markpath = Paths.get(root+MarkNewFileName);
+			//3. 파일 write
+			Files.write(imgpath, arrImg);
+			Files.write(markpath, arrMark);
+			
+			dao.update(idol_idx,idol_group,idol_name
+					,idol_img_Ori,imgNewFileName,idol_mark_Ori,MarkNewFileName);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+
+
+	}
+
+	public ModelAndView idolUpdate(String idol_idx) {
+		IdolDTO idolDetail = dao.idolUpdate(idol_idx);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("idolDetail", idolDetail);
+		mav.setViewName("idolUpdate");
+		
+		return mav;
 	}
 
 
