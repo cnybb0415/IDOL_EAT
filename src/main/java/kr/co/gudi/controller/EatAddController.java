@@ -24,7 +24,7 @@ public class EatAddController {
 	@Autowired EatAddService service;
 	
 	@ResponseBody
-	@RequestMapping(value = "/EatAddIdolList")
+	@RequestMapping(value = "/eatAddIdolList")
 	public HashMap<String, Object> EatAddIdolList() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		ArrayList<IdolDTO> EatIdolData = service.EatAddIdolList();
@@ -34,7 +34,7 @@ public class EatAddController {
 		return map; 
 	}
 	
-	@RequestMapping(value = "/EatAdd.do")
+	@RequestMapping(value = "/eatAdd.do")
 	public String eatAdd(Model model,@RequestParam HashMap<String, String> params ) {
 		logger.info("params : {}",params);
 		

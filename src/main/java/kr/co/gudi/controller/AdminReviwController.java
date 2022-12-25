@@ -60,6 +60,27 @@ public class AdminReviwController {
 	}
 	
 	
+	@ResponseBody
+	@RequestMapping(value = "/reviewBlindYes")
+	public void reviewBlindYes(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("rev blind params : {}",params);
+		String rev_idx = params.get("rev_idx");
+		logger.info("idx : "+rev_idx);
+		service.reviewBlindYes(rev_idx);
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/reviewBlindNo")
+	public void reviewBlindNo(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("rev blind params : {}",params);
+		String rev_idx = params.get("rev_idx");
+		logger.info("idx : "+rev_idx);
+		service.reviewBlindNo(rev_idx);
+		
+	}
 	
 	
 }

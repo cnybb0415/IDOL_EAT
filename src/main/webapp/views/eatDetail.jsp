@@ -65,8 +65,8 @@
                      </div>
                   </div>
                   <div class="eatInfoBtn">
-                     <button class="eatInfoBtn1" onclick="eatCancel()">취소</button>
-                     <button id="adminEatBlind" class="eatInfoBtn2" onclick="eatBlind()">숨김</button>
+                     <button type="button" class="eatInfoBtn1" onclick="eatCancel()">취소</button>
+                     <button type="button" id="adminEatBlind" class="eatInfoBtn2" onclick="eatBlind()">숨김</button>
                   </div>
                </div>
             </form>
@@ -75,17 +75,17 @@
    </main>
    <script>
    		//상태에 따른 css 적용
-   		switch(`${eatData.eat_state}`){
+   		switch(${eatData.eat_state}){
    			case 0:{
    	   			const blindButton = document.getElementById("adminEatBlind");
-   	   			blindButton.innerHTML = "숨김";
-   	   			blindButton.setAttribute("class", "eatInfoBtn2");   				
+   	   			blindButton.innerHTML = "숨김 해제";
+   	   			//blindButton.setAttribute("class", "eatInfoBtn2");   				
    				break;
    			}
    			case 1:{
    	   			const blindButton = document.getElementById("adminEatBlind");
-   	   			blindButton.innerHTML = "숨김 해제";
-   	   			blindButton.setAttribute("class", "eatInfoBlind");   		   		
+   	   			blindButton.innerHTML = "숨김";
+   	   			//blindButton.setAttribute("class", "eatInfoBlind");   		   		
    				break;
    			}
    		}
@@ -115,28 +115,6 @@
    		function eatBlind(){
    			switch(${eatData.eat_state}){
    				case 0:{
-   		   			if(!confirm("해당 맛집을 숨김처리하시겠습니까? (숨김처리시 해당 가게의 마커는 지도에 보이지 않습니다.)")){
-   		   				return;
-   		   			} else {
-   		   				$.ajax({
-   		   					type:"GET",
-   		   					url:"/eatBlindYes",
-   		   					data:{
-   		   						eat_idx:`${eatData.eat_idx}`
-   		   					},
-   		   					success:function(result){
-   		   						console.log("숨김처리 완료");
-   		   					},
-   		   					error:function(err){
-   		   						console.log("eatBlind", err);
-   		   						if(err) throw err;
-   		   					}
-   		   				});
-   		   				window.location.href="/admin.go";
-   		   			}   					
-   					break;
-   				}
-   				case 1:{
    		   			if(!confirm("해당 맛집의 숨김을 해제하시겠습니까? (숨김 해제시 해당 가게의 마커가 지도에 표시됩니다.)")){
    		   				return;
    		   			} else {
@@ -144,17 +122,40 @@
    		   					type:"GET",
    		   					url:"/eatBlindNo",
    		   					data:{
-   		   						eat_idx:`${eatData.eat_idx}`
+   		   						eat_idx:${eatData.eat_idx}
    		   					},
    		   					success:function(result){
    		   						console.log("숨김해제");
+   		   		   				window.location.href="/admin.go";
    		   					},
    		   					error:function(err){
    		   						console.log("eatBlind", err);
    		   						if(err) throw err;
    		   					}
    		   				});
-   		   				window.location.href="/admin.go";
+   		   			}   					
+   					break;
+   				}
+   				case 1:{
+   		   			if(!confirm("해당 맛집을 숨김처리하시겠습니까? (숨김처리시 해당 가게의 마커는 지도에 보이지 않습니다.)")){
+   		   				return;
+   		   			} else {
+   		   				$.ajax({
+   		   					type:"GET",
+   		   					url:"/eatBlindYes",
+   		   					data:{
+   		   						eat_idx:${eatData.eat_idx}
+   		   					},
+   		   					success:function(result){
+   		   						console.log("숨김처리 완료");
+   		   						window.location.href="/admin.go";
+   		   					},
+   		   					error:function(err){
+   		   						console.log("eatBlind", err);
+   		   						if(err) throw err;
+   		   					}
+   		   				});
+	   		   			
    		   			}   					
    					break;
    				}

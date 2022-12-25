@@ -162,6 +162,7 @@
 	//맛집정보 버튼을 눌렀을 때 실행되는 함수
     function adminEatClick(event){
       const buttonFlag = document.getElementById("buttonFlag");
+      document.getElementById("adminFind").value = "";
       buttonFlag.innerHTML = "eat";
       adminButton(event.target);
       event.target.style.backgroundColor = "#8DA1FB";
@@ -188,6 +189,7 @@
 	//회원정보 버튼을 눌렀을 때 실행되는 함수
     function adminMemberClick(event){
       const buttonFlag = document.getElementById("buttonFlag");
+      document.getElementById("adminFind").value = "";
       buttonFlag.innerHTML = "member";
       adminButton(event.target);
       event.target.style.backgroundColor = "#8DA1FB";
@@ -214,6 +216,7 @@
 	//리뷰정보를 눌렀을 때 실행되는 함수
     function adminReviewClick(event){
       const buttonFlag = document.getElementById("buttonFlag");
+      document.getElementById("adminFind").value = "";
       buttonFlag.innerHTML = "review";
       adminButton(event.target);
       event.target.style.backgroundColor = "#8DA1FB";
@@ -241,6 +244,7 @@
 	//아이돌 정보 버튼을 눌렀을 때 실행되는 함수
     function adminIdolClick(event){
       const buttonFlag = document.getElementById("buttonFlag");
+      document.getElementById("adminFind").value = "";
       buttonFlag.innerHTML = "idol";
       adminButton(event.target);
       event.target.style.backgroundColor = "#8DA1FB";
@@ -374,7 +378,7 @@
 						document.getElementById("adminRevEatNum").innerHTML = data.reviewDetail[0].eat_idx;
 						document.getElementById("adminRevEatName").innerHTML = data.reviewDetail[0].eat_name;
 						document.getElementById("adminRevNum").innerHTML = data.reviewDetail[0].rev_idx;
-						document.getElementById("adminRevMemNick").innerHTML = data.reviewDetail[0].mem_nick;
+						document.getElementById("adminRevMemNick").innerHTML = data.reviewDetail[0].user_nick;
 						document.getElementById("adminRevDate").innerHTML = data.reviewDetail[0].rev_date;
 						document.getElementById("adminRevDetail").innerHTML = data.reviewDetail[0].rev_content;
 						let starString = "";
@@ -420,7 +424,7 @@
     	    			rev_idx:document.getElementById("adminRevNum").innerHTML
     	    		},
     	    		success:function(){
-    	    			alert("해당 리뷰 정보를 숨김 처리했습니다!");
+    	    			document.getElementById("adminReviewWrap").style.display = "none";						
     	    		}
     	    	});	
         	}
@@ -435,7 +439,7 @@
     	    			rev_idx:document.getElementById("adminRevNum").innerHTML
     	    		},
     	    		success:function(){
-    	    			alert("해당 리뷰 정보를 숨김을 해제했습니다!");
+    	    			document.getElementById("adminReviewWrap").style.display = "none";
     	    		}
     	    	});	
         	}    		
@@ -492,7 +496,7 @@
 	   }
 
 	}
-    //adminEatClick();
+    //adminEatClick(event);
   </script>
 </body>
 </html>

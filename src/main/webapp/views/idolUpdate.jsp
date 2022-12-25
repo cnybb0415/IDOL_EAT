@@ -5,7 +5,7 @@
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin2.css"> --%>
-<link rel="stylesheet" type="text/css" href="resources/css2/idolUpdate.css">
+<link rel="stylesheet" type="text/css" href="resources/css2/idolUpdate.css"> 
 <meta charset="UTF-8">
 <title>아이돌 수정</title>
 </head>
@@ -53,7 +53,7 @@
                         <p>아이돌 이미지 첨부</p>
                         <div>
                            <input id="idolImgCover" class="imgUpload" disabled>
-                           <label for="inputIdolImg">업로드</label>
+                           <label for="idolUpdateImg">업로드</label>
                            <input type="file" id="idolUpdateImg" name="idol_img_ori" class="inputIdolImg" onchange="updateImgChange(event)">
                         </div>
                      </div>
@@ -61,7 +61,7 @@
                         <p>마커 이미지 첨부</p>
                         <div>
                            <input id="idolMarkerCover" class="imgUpload" disabled>
-                           <label for="inputMarkerImg">업로드</label>
+                           <label for="idolMarkerImg">업로드</label>
                            <input type="file" id="idolMarkerImg" class="inputMarkerImg" name="idol_mark_ori" onchange="updateMarkerChange(event)"> 
                         </div>
                      </div>

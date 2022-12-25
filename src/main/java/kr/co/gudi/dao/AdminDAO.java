@@ -19,9 +19,9 @@ public interface AdminDAO {
 
 	int write(IdolDTO dto);
 
-	void imgFileUpload(int idol_idx, String imgOriFileName, String imgNewFileName);
+	void imgFileUpload(String idol_idx, String imgOriFileName, String imgNewFileName);
 
-	void markFileUpload(int idol_idx, String markOriFileName, String markNewFileName);
+	void markFileUpload(String idol_idx, String markOriFileName, String markNewFileName);
 
 	ArrayList<IdolDTO> idolList();
 	
@@ -47,12 +47,27 @@ public interface AdminDAO {
 
 	ArrayList<ReviewDTO> reviewDetail(String rev_idx);
 
-	void update(String idol_idx,String idol_group,String idol_name,
-			String idol_img_Ori, String imgNewFileName, String idol_mark_Ori, String markNewFileName);
+	int update(String idol_idx,String idol_group,String idol_name);
 
 	String eatDate(String eat_idx);
 
 	IdolDTO idolUpdate(String idol_idx);
+
+	void eatBlindYes(String eat_idx);
+
+	void eatBlindNo(String eat_idx);
+
+	void reviewBlindYes(String rev_idx);
+
+	void reviewBlindNo(String rev_idx);
+
+	void memberBlindYes(String user_idx);
+
+	void memberBlindNo(String user_idx);
+
+	void idolBlindYes(String idol_idx);
+
+	void idolBlindNo(String idol_idx);
 
 
 }

@@ -15,6 +15,7 @@
 	<a href="/admin.go">ADMIN</a>
 	<a href="/adminEatDetail?eat_idx=1000">eatDetail</a>
 	<a href="/adminMemberDetail?user_idx=1000">memberDetail</a>
+	<a href="/add.go">맛집추가</a>
 </body>
 <script>
 </script>

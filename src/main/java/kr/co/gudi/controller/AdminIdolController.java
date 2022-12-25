@@ -76,7 +76,29 @@ public class AdminIdolController {
 		service.update(params,idol_img_ori,idol_mark_ori);
 //		service.write(params,inputIdolImg,inputIdolMark);
 		
-		return "redirect:/";
+		return "redirect:/admin.go";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/idolBlindYes")
+	public void idolBlindYes(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("idol blind params : {}",params);
+		String idol_idx = params.get("idol_idx");
+		logger.info("idx : "+idol_idx);
+		service.idolBlindYes(idol_idx);
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/idolBlindNo")
+	public void idolBlindNo(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("idol blind params : {}",params);
+		String idol_idx = params.get("idol_idx");
+		logger.info("idx : "+idol_idx);
+		service.idolBlindNo(idol_idx);
+		
 	}
 	
 	

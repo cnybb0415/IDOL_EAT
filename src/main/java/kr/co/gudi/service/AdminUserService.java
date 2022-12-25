@@ -36,6 +36,17 @@ public class AdminUserService {
 		
 		return mav;
 	}
+
+	public void memberBlindYes(String user_idx) {
+		
+		dao.memberBlindYes(user_idx);
+		
+	}
+
+	public void memberBlindNo(String user_idx) {
+		dao.memberBlindNo(user_idx);
+		
+	}
 	
 
 }

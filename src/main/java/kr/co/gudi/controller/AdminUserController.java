@@ -52,14 +52,26 @@ public class AdminUserController {
 		return service.adminMemberDetail(user_idx);
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "/memberBlindYes")
-	public ModelAndView memberBlindYes(@RequestParam HashMap<String, String> params) {
+	public void memberBlindYes(@RequestParam HashMap<String, String> params) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		logger.info("blind params : {}",params);
-//		logger.info("idx : "+user_idx);
+		logger.info("user blind params : {}",params);
+		String user_idx = params.get("user_idx");
+		logger.info("idx : "+user_idx);
+		service.memberBlindYes(user_idx);
 		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/memberBlindNo")
+	public void memberBlindNo(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("user blind params : {}",params);
+		String user_idx = params.get("user_idx");
+		logger.info("idx : "+user_idx);
+		service.memberBlindNo(user_idx);
 		
-		return null;
 	}
 	
 	

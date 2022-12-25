@@ -54,7 +54,7 @@
 	
 	<select id="idolSearch" resultType="IdolDTO">
 		SELECT * FROM idol 
-		WHERE idol_name like CONCAT('%', #{param1}, '%') or idol_group like CONCAT('%', #{param1}, '%')} or idol_idx like CONCAT('%', #{param1}, '%') 
+		WHERE idol_name like CONCAT('%', #{param1}, '%') or idol_group like CONCAT('%', #{param1}, '%') or idol_idx like CONCAT('%', #{param1}, '%') 
 		ORDER BY idol_idx;
 	</select>
 	
@@ -88,18 +88,15 @@
 	</select>
 	
 	<select id="reviewDetail" resultType="ReviewDTO">
-		select * from review 
-			where rev_idx = #{param1};
+			SELECT * FROM review r, eat e, user u  
+			WHERE rev_idx = #{param1} and r.eat_idx = e.eat_idx and u.user_idx = r.user_idx  
+			ORDER BY rev_idx;
 	</select>
 	
 	<update id="update" parameterType="String">
 		UPDATE idol SET 	
 			idol_group = #{idol_group}
 			,idol_name = #{idol_name}
-			,idol_mark_ori = #{idol_mark_Ori} 
-			,idol_mark_new = #{markNewFileName}
-			,idol_img_ori = #{idol_img_Ori} 
-			,idol_img_new = #{imgNewFileName}
 		WHERE idol_idx = #{idol_idx}
 		
 	</update>
@@ -113,6 +110,51 @@
 		select * from idol 
 			where idol_idx = #{param1};
 	</select>
+	
+	
+	<update id="eatBlindYes" parameterType="String">
+		update eat set eat_state = 0 
+		WHERE eat_idx = #{idol_idx}
+		
+	</update>
+	
+	<update id="eatBlindNo" parameterType="String">
+		update eat set eat_state = 1 
+		WHERE eat_idx = #{idol_idx}
+		
+	</update>
+	
+	<update id="reviewBlindYes" parameterType="String">
+		update review set rev_state = 0 
+		WHERE rev_idx = #{rev_idx}
+	</update>
+	
+	<update id="reviewBlindNo" parameterType="String">
+		update review set rev_state = 1
+		WHERE rev_idx = #{rev_idx}
+	</update>
+	
+	
+	<update id="memberBlindYes" parameterType="String">
+		update user set user_state = 0 
+		WHERE user_idx = #{user_idx}
+	</update>
+	
+	<update id="memberBlindNo" parameterType="String">
+		update user set user_state = 1
+		WHERE user_idx = #{user_idx}
+	</update>
+	
+	
+	<update id="idolBlindYes" parameterType="String">
+		update idol set idol_state = 0 
+		WHERE idol_idx = #{idol_idx}
+	</update>
+	
+	<update id="idolBlindNo" parameterType="String">
+		update idol set idol_state = 1
+		WHERE idol_idx = #{idol_idx}
+	</update>
 	
 	
 	

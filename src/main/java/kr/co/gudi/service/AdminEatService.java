@@ -41,6 +41,18 @@ public class AdminEatService {
 		
 		return mav;
 	}
+	public void eatBlindYes(String eat_idx) {
+		
+		dao.eatBlindYes(eat_idx);
+		
+		
+		
+		
+	}
+	public void eatBlindNo(String eat_idx) {
+		dao.eatBlindNo(eat_idx);
+		
+	}
 
 	
 

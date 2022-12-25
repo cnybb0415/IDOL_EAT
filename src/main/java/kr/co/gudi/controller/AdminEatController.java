@@ -60,6 +60,27 @@ public class AdminEatController {
 		
 		return service.adminEatDetail(eat_idx);
 	}
+	@ResponseBody
+	@RequestMapping(value = "/eatBlindYes")
+	public void eatBlindYes(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("eat blind params : {}",params);
+		String eat_idx = params.get("eat_idx");
+		logger.info("idx : "+eat_idx);
+		service.eatBlindYes(eat_idx);
+		
+	}
+	@ResponseBody
+	@RequestMapping(value = "/eatBlindNo")
+	public void eatBlindNo(@RequestParam HashMap<String, String> params) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		logger.info("eat blind params : {}",params);
+		String eat_idx = params.get("eat_idx");
+		logger.info("idx : "+eat_idx);
+		
+		service.eatBlindNo(eat_idx);
+		
+	}
 	
 	
 	

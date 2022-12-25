@@ -11,7 +11,7 @@
 
 	<insert id="eatAdd" parameterType="String">
 		INSERT into eat (idol_idx, eat_address, eat_name, user_idx, eat_source)
-		values(#{idol_idx},#{eat_adress},#{eat_name},#{user_idx},#{eat_source});
+		values(#{idol_idx},#{eat_address},#{eat_name},#{user_idx},#{eat_source});
 	</insert>
 </mapper>
 

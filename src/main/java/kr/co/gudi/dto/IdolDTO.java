@@ -6,17 +6,17 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("IdolDTO")
 public class IdolDTO {	
-	private int idol_idx;
+	private String idol_idx;
 	private String idol_group;
 	private String idol_name;
 	private String idol_mark_ori;
 	private String idol_mark_new;
 	private String idol_img_ori;
 	private String idol_img_new;
-	public int getIdol_idx() {
+	public String getIdol_idx() {
 		return idol_idx;
 	}
-	public void setIdol_idx(int idol_idx) {
+	public void setIdol_idx(String idol_idx) {
 		this.idol_idx = idol_idx;
 	}
 	public String getIdol_group() {

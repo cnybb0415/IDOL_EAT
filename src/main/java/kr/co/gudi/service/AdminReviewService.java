@@ -34,6 +34,20 @@ public class AdminReviewService {
 		logger.info("service rev_idx : "+rev_idx);
 		return dao.reviewDetail(rev_idx);
 	}
+
+
+
+	public void reviewBlindYes(String rev_idx) {
+		dao.reviewBlindYes(rev_idx);
+		
+	}
+
+
+
+	public void reviewBlindNo(String rev_idx) {
+		dao.reviewBlindNo(rev_idx);
+		
+	}
 	
 
 }

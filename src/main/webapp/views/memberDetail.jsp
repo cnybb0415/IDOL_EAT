@@ -63,8 +63,8 @@
                      </div>
                   </div>
                   <div class="memberInfoBtn">
-                     <button class="memberInfoBtn1" onclick="memberCancel()">취소</button>
-                     <button id="adminMemberBlind" class="memberInfoBtn2" onclick="memberBlind()">숨김</button>
+                     <button type="button" class="memberInfoBtn1" onclick="memberCancel()">취소</button>
+                     <button type="button" id="adminMemberBlind" class="memberInfoBtn2" onclick="memberBlind()">숨김</button>
                   </div>
                </div>
             </form>
@@ -91,19 +91,19 @@
    		   					},
    		   					success:function(result){
    		   						console.log("숨김해제");
+   				   				window.location.href="/admin.go";
    		   					},
    		   					error:function(err){
    		   						console.log("memberBlind", err);
    		   						if(err) throw err;
    		   					}
    		   				});
-		   				window.location.href="/admin.go";
 		   			}   					
 					break;
 				}
 				case 1:{
 					if(!confirm("해당 회원을 숨김처리하시겠습니까? (숨김 처리 시 해당 회원은 로그인이 불가합니다.)")){
-						window.location.href="/memberDetail.go?user_idx=" + ${userDetail.user_idx};
+						return false;
 		   			} else {
    		   				$.ajax({
    		   					type:"GET",
@@ -113,13 +113,13 @@
    		   					},
    		   					success:function(result){
    		   						console.log("숨김처리 완료");
+   				   				window.location.href="/admin.go";
    		   					},
    		   					error:function(err){
    		   						console.log("memberBlind", err);
    		   						if(err) throw err;
    		   					}
    		   				});
-		   				window.location.href="/admin.go";
 		   			}   					
 					break;
 				}

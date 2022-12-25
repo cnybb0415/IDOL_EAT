@@ -70,19 +70,18 @@
       </div>
    </main>
    <script>
-	//전역변수
-     let idolAddGroup = document.getElementById("idolAddGroup").value;
-	 let idolAddName = document.getElementById("idolAddName").value;
-	 let idolImgName = document.getElementById("idolImgName").value;
-	 let idolMarkerName = document.getElementById("idolMarkerName").value;
- 
+   
 	 function idolAddReset(){
-		 idolAddGrop = "";
-		 idolAddName = "";
-		 idolImgName = "";
-		 idolMarkerName = "";
+		 document.getElementById("idolAddGroup").value = "";
+		 document.getElementById("idolAddName").value = "";
+		 document.getElementById("idolImgName").value = "";
+		 document.getElementById("idolMarkerName").value = "";
 	 }
 	 function idolAddSubmit(e){
+		 const idolAddGroup = document.getElementById("idolAddGroup").value;
+		 const idolAddName = document.getElementById("idolAddName").value;
+		 const idolImgName = document.getElementById("idolImgName").value;
+		 const idolMarkerName = document.getElementById("idolMarkerName").value;
          if(idolAddGroup == "" || idolAddName == "" || idolImgName == "" || idolMarkerName == ""){
             alert("폼 내용을 모두 채워주세요.");            
             e.preventDefault();
@@ -91,7 +90,7 @@
         	 if(!confirm("해당 내용으로 아이돌을 추가하시겠습니까?")){
         		 e.preventDefault();
         	 }else{
-        		 return;
+        		 
         	 }
          }
       }
