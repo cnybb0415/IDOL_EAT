@@ -1,10 +1,14 @@
 package kr.co.gudi.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
@@ -14,7 +18,12 @@ public class MainController {
 	
 	@RequestMapping(value = "/")
 	public String main() {
-		return "home";
+		return "login";
+	}
+	
+	@RequestMapping(value = "/detail")
+	public String detail() {
+		return "detail";
 	}
 	
 	@RequestMapping(value = "/{page}.go")
@@ -38,6 +47,16 @@ public class MainController {
 		logger.info("page move : {}/{}/{}",root,sub,page);
 		
 		return root+"/"+sub+"/"+page;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/logout.do")
+	public String logout(HttpSession session, HttpServletRequest req){
+		logger.info("로그아웃");
+		session = req.getSession();
+		session.invalidate();
+
+		return "logout";
 	}
 	
 }

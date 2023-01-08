@@ -12,7 +12,7 @@
   <div id="adminWrap">
     <header id="adminHeader">
       <div title="홈 아이콘"></div>
-      <p>닉네임 관리자님 환영합니다.</p><!-- append 추가하기-->
+      <p onclick="logoutFunc()">로그아웃</p>
     </header>
     <main>
       <div id="adminReviewWrap">
@@ -496,7 +496,26 @@
 	   }
 
 	}
-    //adminEatClick(event);
+	
+	function logoutFunc(){
+		$.ajax({
+			type:"POST",
+			url:"/logout.do",
+			data:{
+				logout:"logout"
+			},
+			dataType:"TEXT",
+			success:function(data){
+				if(data == "logout"){
+					window.location.href="/"
+				}
+			},
+			error:function(err){
+				console.log("logout", err);
+				if(err) throw err;
+			}
+		});
+	}
   </script>
 </body>
 </html>

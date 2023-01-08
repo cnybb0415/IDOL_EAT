@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #2A2A29;
+  list-style-type: none;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  background: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+button, a, input[type=button], input[type=submit] {
+  cursor: pointer;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+p, span {
+  cursor: default;
+}
+
+p {
+  word-break: keep-all;
+}
+
+table, thead, tbody, th, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+  cursor: default;
+}
+
+input::-moz-placeholder {
+  color: rgba(42, 42, 41, 0.2);
+}
+
+input:-ms-input-placeholder {
+  color: rgba(42, 42, 41, 0.2);
+}
+
+input::placeholder {
+  color: rgba(42, 42, 41, 0.2);
+}
+
+.detailWrap > header {
+  position: fixed;
+  width: 100%;
+  height: 8rem;
+  background-color: white;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background-color: #FFF2E1;
+}
+.detailWrap > header > div {
+  width: 4rem;
+  height: 4rem;
+  background-color: #7B7B7B;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 6.4rem;
+}
+.detailWrap > header > p {
+  font-size: 2rem;
+  margin-right: 6.4rem;
+}
+.detailWrap main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 8rem;
+}
+.detailWrap main .detailMain {
+  position: relative;
+  width: 76.8rem;
+  margin-top: 14.4rem;
+}
+.detailWrap main .detailMain > section:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-bottom: 7.4rem;
+  background-color: #fff9f2;
+  border-radius: 14rem 3.6rem;
+}
+.detailWrap main .detailMain > section:first-child > img {
+  width: 16rem;
+  height: 16rem;
+  background-color: #111;
+  border-radius: 50%;
+  margin-bottom: -3.2rem;
+  transform: translateY(-50%);
+}
+.detailWrap main .detailMain > section:first-child > h2 {
+  margin-bottom: 1.6rem;
+  font-size: 3.2rem;
+  font-weight: 500;
+  text-align: center;
+}
+.detailWrap main .detailMain > section:first-child > .starList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 3.2rem;
+}
+.detailWrap main .detailMain > section:first-child > .starList > li {
+  width: 3.6rem;
+  height: 3.6rem;
+  background-image: url(../img/emptyStar.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 0.8rem;
+}
+.detailWrap main .detailMain > section:first-child > .starList > li[class=activeStar] {
+  background-image: url(../img/colorStar.png);
+}
+.detailWrap main .detailMain > section:first-child > p {
+  margin-bottom: 5.6rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #7B7B7B;
+}
+.detailWrap main .detailMain > section:first-child > .detailImgList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.detailWrap main .detailMain > section:first-child > .detailImgList > li {
+  width: 10.4rem;
+  height: 10.4rem;
+  margin-right: 0.8rem;
+  border-radius: 2.4rem;
+  background-color: #444444;
+}
+.detailWrap main .detailMain > section:first-child > .detailImgList > li > :last-child {
+  margin-right: 0;
+}
+.detailWrap main .detailMain > section:nth-child(2) {
+  margin-bottom: 3.2rem;
+  padding-bottom: 4.8rem;
+  border-bottom: 1px solid #F9A269;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .pictureArea {
+  display: flex;
+  justify-content: row;
+  align-items: flex-end;
+  margin-bottom: 2.4rem;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .pictureArea > .pictureView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13.6rem;
+  height: 13.6rem;
+  margin-right: 2.4rem;
+  border: 1px solid #F9A269;
+  border-radius: 2.4rem;
+  font-size: 1.6rem;
+  color: #F9A269;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .pictureArea > #detailLoadImg {
+  font-size: 1.6rem;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .reviewArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.6rem;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .reviewArea > .starList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .reviewArea > .starList > li {
+  width: 3.6rem;
+  height: 3.6rem;
+  background-image: url(../img/emptyStar.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 0.8rem;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .reviewArea > .starList > li[class=activeStar] {
+  background-image: url(../img/colorStar.png);
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .reviewArea > button {
+  width: 20rem;
+  height: 5.6rem;
+  background-color: #F9A269;
+  border-radius: 2.8rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > .reviewArea > button:hover {
+  background-color: #FA7C35;
+}
+.detailWrap main .detailMain > section:nth-child(2) > form > textarea {
+  width: 100%;
+  height: 16rem;
+  padding: 2.4rem;
+  border-radius: 2.4rem;
+  background-color: #F6F6F6;
+  font-size: 1.6rem;
+  resize: none;
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li {
+  padding: 3.2rem;
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li > div > span {
+  font-size: 1.8rem;
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li > div > p {
+  margin-left: 2.4rem;
+  font-size: 1.4rem;
+  color: #7B7B7B;
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li > .reviewStar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 3.2rem;
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li > .reviewStar > li {
+  width: 2.4rem;
+  height: 2.4rem;
+  background-image: url(../img/emptyStar.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 0.8rem;
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li > .reviewStar > li[class=activeStar] {
+  background-image: url(../img/colorStar.png);
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li > .detailReviewImg {
+  width: 13.6rem;
+  height: 13.6rem;
+  margin-bottom: 3.2rem;
+  background-color: #111;
+  border-radius: 2.4rem;
+}
+.detailWrap main .detailMain > section:nth-child(3) > ul > li > span {
+  width: 100%;
+  font-size: 1.6rem;
+  white-space: pre-wrap;
+  display:block;
+}
+.detailWrap > div {
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  width: 100%;
+  height: 56.4rem;
+  background-image: url(../img/detail_pattern.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+}/*# sourceMappingURL=detailStyle.css.map */

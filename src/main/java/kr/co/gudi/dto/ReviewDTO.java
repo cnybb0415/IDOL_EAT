@@ -11,8 +11,8 @@ public class ReviewDTO {
 	private String rev_content;
 	private double rev_star;
 	private int rev_state;
-	private int user_idx;
-	private int eat_idx;
+	private String user_idx;
+	private String eat_idx;
 	private String eat_name;
 	private String eat_address;
 	private Date eat_date;
@@ -20,8 +20,15 @@ public class ReviewDTO {
 	private int eat_state;
 	private int idol_idx;
 	private String user_nick;
+	private String user_id;
 	
 	
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 	public String getUser_nick() {
 		return user_nick;
 	}
@@ -94,16 +101,16 @@ public class ReviewDTO {
 	public void setRev_state(int rev_state) {
 		this.rev_state = rev_state;
 	}
-	public int getUser_idx() {
+	public String getUser_idx() {
 		return user_idx;
 	}
-	public void setUser_idx(int user_idx) {
+	public void setUser_idx(String user_idx) {
 		this.user_idx = user_idx;
 	}
-	public int getEat_idx() {
+	public String getEat_idx() {
 		return eat_idx;
 	}
-	public void setEat_idx(int eat_idx) {
+	public void setEat_idx(String eat_idx) {
 		this.eat_idx = eat_idx;
 	}
 	

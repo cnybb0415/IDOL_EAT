@@ -62,7 +62,7 @@
                      </div>
                   </div>
                   <div class="addInfoBtn">
-                     <a class="addInfoBtn1" href="./main">취소</a>
+                     <a class="addInfoBtn1" href="./main.go">취소</a>
                      <button class="addInfoBtn2">추가하기</button>
                   </div>
                </div>
@@ -162,13 +162,19 @@
 	    	url:"/eatAdd.do",
 	    	data:{
 	    		 idol_idx: addIdolIndex,
-	    		 user_idx: "1000",
 		         eat_name: addStore.value,
 		         eat_address: eatAddress,
 		         eat_source: addText.value	    		
 	    	},
-	    	success:function(){
-	    		console.log("맛집 추가!");
+	    	dataType:"TEXT",
+	    	success:function(data){
+	    		if(data == "success"){
+	    			window.location.href = "/main.go";
+	    		}
+	    	},
+	    	error:function(err){
+	    		console.log("eatAdd.do", err);
+	    		if(err) throw err;
 	    	}
 	     });
 	   });

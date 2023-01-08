@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/resources/css/idolAdd.css" type="text/css">
+<link rel="stylesheet" href="/resources/css2/idolAdd.css" type="text/css">
 <meta charset="UTF-8">
 <title>아이돌 추가 페이지</title>
 </head>
@@ -100,7 +100,7 @@
     		  return;
     	  }else{
     		  idolAddReset();
-    		  window.location.href = "/";
+    		  window.location.href = "/admin.go";
     	  }
       }
 

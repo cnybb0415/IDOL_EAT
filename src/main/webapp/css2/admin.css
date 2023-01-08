@@ -77,6 +77,10 @@ table, thead, tbody, th, td {
 #adminWrap > header > p {
   font-size: 2rem;
   margin-right: 6.4rem;
+  cursor:pointer;
+}
+#adminWrap > header > p:hover {
+	text-decoration: underline;
 }
 #adminWrap > header {
   z-index: 5000;

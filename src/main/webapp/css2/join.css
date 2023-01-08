@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #2A2A29;
+  list-style-type: none;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  background: transparent;
+  user-select: none;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+button, a, input[type=button], input[type=submit] {
+  cursor: pointer;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+p, span {
+  cursor: default;
+}
+
+p {
+  word-break: keep-all;
+}
+
+table, thead, tbody, th, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+  cursor: default;
+}
+
+input::placeholder {
+  color: rgba(42, 42, 41, 0.2);
+}
+
+html, body {
+  width: 100%;
+}
+html .joinWrap, body .joinWrap {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+html .joinWrap .img0, body .joinWrap .img0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+html .joinWrap .img1, body .joinWrap .img1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+html .joinWrap .img2, body .joinWrap .img2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+html .joinWrap .img3, body .joinWrap .img3 {
+  position: absolute;
+  top: 7.4rem;
+  left: 25.93%;
+}
+html .joinWrap .img4, body .joinWrap .img4 {
+  position: absolute;
+  top: 30.2rem;
+  right: 14.21%;
+}
+html .joinWrap .img5, body .joinWrap .img5 {
+  position: absolute;
+  top: 63rem;
+  left: 28.75%;
+}
+html .joinWrap .img6, body .joinWrap .img6 {
+  position: absolute;
+  top: 95.9rem;
+  left: 15.78%;
+}
+html .joinWrap .img7, body .joinWrap .img7 {
+  position: absolute;
+  top: 106.4rem;
+  right: 17.13%;
+}
+html .joinWrap .joinWrap2, body .joinWrap .joinWrap2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15rem;
+  margin-bottom: 25rem;
+}
+html .joinWrap .joinWrap2 .joinBox, body .joinWrap .joinWrap2 .joinBox {
+  width: 54.4rem;
+  height: 116.4rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .joinWrap .joinWrap2 .joinBox .joinBoxTitle, body .joinWrap .joinWrap2 .joinBox .joinBoxTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #F9A269;
+}
+html .joinWrap .joinWrap2 .joinBox > form, body .joinWrap .joinWrap2 .joinBox > form {
+  width: 54.4rem;
+  height: 104.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo1, body .joinWrap .joinWrap2 .joinBox > form .joinInfo1 {
+  width: 53.6rem;
+  height: 40.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 0.1rem solid #D4D4D4;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box, body .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box {
+  width: 53.6rem;
+  height: 10.6rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box > label, body .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box > label {
+  width: auto;
+  height: 2.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 0.8rem;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box > input, body .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box > input {
+  width: 53.6rem;
+  height: 7.2rem;
+  padding-left: 1.5rem;
+  font-size: 1.8rem;
+  border-radius: 1.6rem;
+  background-color: #F6F6F6;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box > .xi-check-circle, body .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box > .xi-check-circle {
+  visibility: hidden;
+  position: absolute;
+  top: 5rem;
+  left: 47.2rem;
+  font-size: 4rem;
+  cursor: pointer;
+  color: #FFC780;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box > input::placeholder, body .joinWrap .joinWrap2 .joinBox > form .joinInfo1 .joinInfo1Box > input::placeholder {
+  color: #CECECE;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo1 div:first-child, body .joinWrap .joinWrap2 .joinBox > form .joinInfo1 div:first-child {
+  margin-bottom: 1.6rem;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo1 div:nth-child(2), body .joinWrap .joinWrap2 .joinBox > form .joinInfo1 div:nth-child(2) {
+  margin-bottom: 1.6rem;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 {
+  width: 54.4rem;
+  height: 63.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs {
+  width: 54.4rem;
+  height: 55.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox1, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox1 {
+  width: 53.6rem;
+  height: 10.6rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox1 > label, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox1 > label {
+  width: auto;
+  height: 2.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 0.8rem;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox1 > input, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox1 > input {
+  width: 53.6rem;
+  height: 7.2rem;
+  padding-left: 1.5rem;
+  font-size: 1.8rem;
+  border-radius: 1.6rem;
+  background-color: #F6F6F6;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox1 > .xi-check-circle, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox1 > .xi-check-circle {
+  visibility: hidden;
+  position: absolute;
+  top: 5rem;
+  left: 47.2rem;
+  font-size: 4rem;
+  cursor: pointer;
+  color: #FFC780;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 {
+  width: 53.6rem;
+  height: 10.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > label, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > label {
+  width: auto;
+  height: 2.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 0.8rem;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div {
+  width: 53.6rem;
+  height: 7.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div > input, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div > input {
+  width: 16.6rem;
+  height: 7.2rem;
+  font-size: 1.8rem;
+  text-align: center;
+  border-radius: 1.6rem;
+  background-color: #F6F6F6;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div input[type=number]::-webkit-outer-spin-button,
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div input[type=number]::-webkit-inner-spin-button, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div input[type=number]::-webkit-outer-spin-button,
+body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div > input::placeholder, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox2 > div > input::placeholder {
+  color: #CECECE;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox3, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox3 {
+  width: 53.6rem;
+  height: 18.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox3 > label, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox3 > label {
+  width: auto;
+  height: 2.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 0.8rem;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox3 > input, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox3 > input {
+  width: 53.6rem;
+  height: 7.2rem;
+  padding-left: 1.5rem;
+  font-size: 1.8rem;
+  border-radius: 1.6rem;
+  background-color: #F6F6F6;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox3 > input::placeholder, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs .joinInfoBox3 > input::placeholder {
+  color: #CECECE;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs > div:first-child, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs > div:first-child {
+  margin-bottom: 1.6rem;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs > div:nth-child(2), body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBoxs > div:nth-child(2) {
+  margin-bottom: 1.6rem;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn {
+  width: 54.4rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn .joinInfoBtn1, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn .joinInfoBtn1 {
+  width: 19.4rem;
+  height: 8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border-radius: 4rem;
+  color: #fff;
+  background-color: #D4D4D4;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn .joinInfoBtn1:hover, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn .joinInfoBtn1:hover {
+  background-color: #a1a1a1;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn .joinInfoBtn2, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn .joinInfoBtn2 {
+  width: 32.6rem;
+  height: 8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border-radius: 4rem;
+  color: #fff;
+  background-color: #F9A269;
+}
+html .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn .joinInfoBtn2:hover, body .joinWrap .joinWrap2 .joinBox > form .joinInfo2 .joinInfoBtn .joinInfoBtn2:hover {
+  background-color: #FA7C35;
+}
+html .joinAlert, body .joinAlert {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44rem;
+  height: 28rem;
+  background-color: #fff;
+  border-radius: 2.4rem;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0.4rem 0.8rem rgba(42, 42, 41, 0.1);
+  z-index: 1000;
+}
+html .joinAlert > h3, body .joinAlert > h3 {
+  width: 5.6rem;
+  height: 5.6rem;
+  margin-bottom: 2.4rem;
+  background-image: url("../ai/icon_warning.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+html .joinAlert > p, body .joinAlert > p {
+  margin-bottom: 3.2rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+html .joinAlert > button, body .joinAlert > button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 4.8rem;
+  border-radius: 4rem;
+  background-color: #F9A269;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #fff;
+}/*# sourceMappingURL=join.css.map */

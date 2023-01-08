@@ -18,14 +18,18 @@ public class EatAddService {
 	Logger logger = LoggerFactory.getLogger(getClass());
 	@Value("${file.location}") private String root;
 	@Autowired EatAddDAO dao;
-	public void eatAdd(HashMap<String, String> params) {
-		
-		dao.eatAdd(params);
-		
-	}
+//	public void eatAdd(HashMap<String, String> params, String user_idx) {
+//		
+//		dao.eatAdd(params,user_idx);
+//		
+//	}
 	public ArrayList<IdolDTO> EatAddIdolList() {
 		
 		return dao.EatAddIdolList();
+	}
+	public void eatAdd(String idol_idx, String eat_address, String eat_name, String user_idx, String eat_source) {
+		dao.eatAdd(idol_idx,eat_address,eat_name,user_idx,eat_source);
+		
 	}
 	
 

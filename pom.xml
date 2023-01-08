@@ -29,6 +29,14 @@
 		</dependency>
 		
 		
+		<!-- spring security -->
+		<!-- 기본 기능 막도록 설정은 다른데서 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		
 		<!-- jasper -->
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
 		<dependency>

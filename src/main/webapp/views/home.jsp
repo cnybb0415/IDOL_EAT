@@ -12,10 +12,14 @@
 	<h3>Test</h3>
 	<a href="/idolAdd.go">아이돌추가</a>
 	<a href="/eatList.do">맛집리스트</a>
+	<a href="/revDetail.go?eat_idx=1000">디테일</a>
+	<a href="/reviewlist.do">/reviewlist.do</a>
 	<a href="/admin.go">ADMIN</a>
-	<a href="/adminEatDetail?eat_idx=1000">eatDetail</a>
-	<a href="/adminMemberDetail?user_idx=1000">memberDetail</a>
+	<a href="/eatDetail.go?eat_idx=1000">eatDetail</a>
+	<a href="/memberDetail.go?user_idx=1000">memberDetail</a>
 	<a href="/add.go">맛집추가</a>
+	<a href="/main.go">main</a>
+	<a href="/login.go">login</a>
 </body>
 <script>
 </script>

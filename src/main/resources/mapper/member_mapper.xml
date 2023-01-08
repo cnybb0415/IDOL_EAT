@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+<!-- 이 XML 을 어떤 interface 를 통해서 연결 할 건가? -->
+<mapper namespace="kr.co.gudi.dao.LoginDAO">
+	
+	<select id="joinGetId" resultType="int" >
+		select count(*) from user where user_id = #{param1}
+	</select>
+	<insert id="join" parameterType="hashmap">
+		insert into user(user_id,user_pw,user_address,user_nick,user_birth,user_name)	
+			values(#{user_id},#{user_pw},#{user_address},#{user_nick},#{user_birth},#{user_name})
+	</insert>
+	<select id="login" resultType="String">
+		select user_pw from user where user_id = #{param1}
+	</select>
+</mapper>
+
+
+

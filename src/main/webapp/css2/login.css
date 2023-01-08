@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #2A2A29;
+  list-style-type: none;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  background: transparent;
+  user-select: none;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+button, a, input[type=button], input[type=submit] {
+  cursor: pointer;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+p, span {
+  cursor: default;
+}
+
+p {
+  word-break: keep-all;
+}
+
+table, thead, tbody, th, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+  cursor: default;
+}
+
+input::placeholder {
+  color: rgba(42, 42, 41, 0.2);
+}
+
+html, body {
+  width: 100%;
+}
+html .loginWrap, body .loginWrap {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+html .loginWrap .img0, body .loginWrap .img0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+html .loginWrap .img1, body .loginWrap .img1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+html .loginWrap .img2, body .loginWrap .img2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+html .loginWrap .img3, body .loginWrap .img3 {
+  position: absolute;
+  top: 7.4rem;
+  left: 25.93%;
+}
+html .loginWrap .img4, body .loginWrap .img4 {
+  position: absolute;
+  top: 30.2rem;
+  right: 14.21%;
+}
+html .loginWrap .img5, body .loginWrap .img5 {
+  position: absolute;
+  top: 63rem;
+  left: 28.75%;
+}
+html .loginWrap .img6, body .loginWrap .img6 {
+  position: absolute;
+  bottom: 20rem;
+  left: 15.78%;
+}
+html .loginWrap .img7, body .loginWrap .img7 {
+  position: absolute;
+  bottom: 4.2rem;
+  right: 17.13%;
+}
+html .loginWrap .loginWrap2, body .loginWrap .loginWrap2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15rem;
+  margin-bottom: 25rem;
+}
+html .loginWrap .loginWrap2 .loginBox, body .loginWrap .loginWrap2 .loginBox {
+  width: 54.4rem;
+  height: 60.6rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .loginWrap .loginWrap2 .loginBox .loginBoxTitle, body .loginWrap .loginWrap2 .loginBox .loginBoxTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #F9A269;
+}
+html .loginWrap .loginWrap2 .loginBox > form, body .loginWrap .loginWrap2 .loginBox > form {
+  width: 54.4rem;
+  height: 48.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo1, body .loginWrap .loginWrap2 .loginBox > form .loginInfo1 {
+  width: 53.6rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box, body .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box {
+  width: 53.6rem;
+  height: 10.6rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > label, body .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > label {
+  width: auto;
+  height: 2.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-left: 0.8rem;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > input, body .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > input {
+  width: 53.6rem;
+  height: 7.2rem;
+  padding-left: 1.5rem;
+  font-size: 1.8rem;
+  border-radius: 1.6rem;
+  background-color: #F6F6F6;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > .xi-check-circle, body .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > .xi-check-circle {
+  visibility: hidden;
+  position: absolute;
+  top: 5rem;
+  left: 47.2rem;
+  font-size: 4rem;
+  cursor: pointer;
+  color: #FFC780;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > .xi-check-circle:hover, body .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > .xi-check-circle:hover {
+  color: #FA7C35;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > input::placeholder, body .loginWrap .loginWrap2 .loginBox > form .loginInfo1 .loginInfo1Box > input::placeholder {
+  color: #CECECE;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo1 div:first-child, body .loginWrap .loginWrap2 .loginBox > form .loginInfo1 div:first-child {
+  margin-bottom: 1.6rem;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo2, body .loginWrap .loginWrap2 .loginBox > form .loginInfo2 {
+  width: 54.4rem;
+  height: 18.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo2 .loginInfoBtn, body .loginWrap .loginWrap2 .loginBox > form .loginInfo2 .loginInfoBtn {
+  width: 54.4rem;
+  height: 8rem;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo2 .loginInfoBtn .loginInfoBtn1, body .loginWrap .loginWrap2 .loginBox > form .loginInfo2 .loginInfoBtn .loginInfoBtn1 {
+  width: 54.4rem;
+  height: 8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border-radius: 4rem;
+  color: #fff;
+  background-color: #D4D4D4;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo2 > p, body .loginWrap .loginWrap2 .loginBox > form .loginInfo2 > p {
+  font-size: 1.8rem;
+  color: #7F7F7F;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo2 > p > a, body .loginWrap .loginWrap2 .loginBox > form .loginInfo2 > p > a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #F9A269;
+  margin-left: 1.2rem;
+}
+html .loginWrap .loginWrap2 .loginBox > form .loginInfo2 > p > a:hover, body .loginWrap .loginWrap2 .loginBox > form .loginInfo2 > p > a:hover {
+  color: #FA7C35;
+}/*# sourceMappingURL=login.css.map */

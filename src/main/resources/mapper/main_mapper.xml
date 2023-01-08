@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+<!-- 이 XML 을 어떤 interface 하고 연결 할 것인가 -->
+<mapper namespace="kr.co.gudi.dao.IdolMainDAO">
+	
+	<select id="idolList" resultType="IdolDTO">
+		SELECT * FROM idol WHERE idol_state = 1 ORDER BY idol_idx DESC
+	</select>
+	
+	<select id="mainEatList" resultType="EatDTO">		
+		SELECT i.*,e.*,(SELECT avg(rev_star) from review r2 where eat_idx = e.eat_idx) as rev_star 
+		from idol i , eat e
+		where i.idol_idx = #{param1} and i.idol_idx = e.idol_idx and eat_state = 1 ORDER BY e.eat_idx DESC;
+	</select>
+	
+	<select id="mainList" resultType="EatDTO">		
+		SELECT i.*,e.*
+		from idol i , eat e
+		where i.idol_idx = e.idol_idx and eat_state = 1 and i.idol_state =1 ORDER BY e.eat_idx DESC;
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

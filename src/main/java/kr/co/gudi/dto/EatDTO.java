@@ -29,8 +29,58 @@ public class EatDTO {
    private String user_name;
    private String manage;
    private int user_state;
+   private double rev_star;
+   private String revP_new;
+   private String revP_idx;
+   private String rev_content;
+   private int rev_idx;
+   private Date rev_date;
+   private int rev_state;
    
-   public int getEat_idx() {
+   
+   public String getRev_content() {
+	return rev_content;
+}
+public void setRev_content(String rev_content) {
+	this.rev_content = rev_content;
+}
+public int getRev_idx() {
+	return rev_idx;
+}
+public void setRev_idx(int rev_idx) {
+	this.rev_idx = rev_idx;
+}
+public Date getRev_date() {
+	return rev_date;
+}
+public void setRev_date(Date rev_date) {
+	this.rev_date = rev_date;
+}
+public int getRev_state() {
+	return rev_state;
+}
+public void setRev_state(int rev_state) {
+	this.rev_state = rev_state;
+}
+public String getRevP_new() {
+	return revP_new;
+}
+public void setRevP_new(String revP_new) {
+	this.revP_new = revP_new;
+}
+public String getRevP_idx() {
+	return revP_idx;
+}
+public void setRevP_idx(String revP_idx) {
+	this.revP_idx = revP_idx;
+}
+public double getRev_star() {
+	return rev_star;
+}
+public void setRev_star(double rev_star) {
+	this.rev_star = rev_star;
+}
+public int getEat_idx() {
       return eat_idx;
    }
    public void setEat_idx(int eat_idx) {

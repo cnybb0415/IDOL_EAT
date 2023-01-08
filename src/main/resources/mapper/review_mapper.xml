@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+<!-- 이 XML 을 어떤 interface 를 통해서 연결 할 건가? -->
+<mapper namespace="kr.co.gudi.dao.ReviewDAO">
+	
+<!-- 	<select id="detail" parameterType="String" 
+		resultType="ReviewDTO">
+		SELECT * FROM review WHERE eat_idx = #{eat_idx}
+	</select>	
+	<insert id="reviewWrite" parameterType="ReviewDTO">
+		INSERT INTO review(rev_content,rev_star, content)
+		VALUES(#{rev_content},#{rev_star}, #{content})
+	</insert> -->
+	
+	<select id="reviewlist" resultType="EatDTO">
+	select e.*,r.*,(select revP_new from review_pic where rev_idx = r.rev_idx) as revP_new,u.*
+			from eat e ,review r,`user` u 
+			where e.eat_idx = r.eat_idx and r.rev_state = 1 and e.eat_idx = #{param1} and u.user_idx = r.user_idx;
+	</select>
+	
+	<select id="revList" resultType="EatDTO">
+	SELECT i.idol_img_new, e.eat_idx,e.eat_name,e.eat_address,avg(r.rev_star) as rev_star,i.idol_name
+	from idol i, eat e,review r
+where e.eat_idx = #{param1} and e.idol_idx = i.idol_idx and r.eat_idx = e.eat_idx;
+	</select>
+	
+	<insert id="revWrite"
+		useGeneratedKeys="true"
+		keyColumn="rev_idx"
+		keyProperty="rev_idx"
+		parameterType="ReviewDTO">
+		INSERT INTO review(rev_content, eat_idx,user_idx)
+		VALUES(#{rev_content},#{eat_idx}, #{user_idx})
+	</insert>
+	
+	<select id="userIdx" resultType="String">
+		SELECT user_idx from user where user_id = #{param1}
+	</select>
+	
+	<insert id="revFileUpload">
+		INSERT INTO review_pic(revP_ori,revP_new,rev_idx)
+			VALUES(#{param2},#{param3},#{param1})
+	</insert>
+	
+		<update id="revUpdate">
+		UPDATE review SET 	
+			rev_star = #{param1}
+		WHERE rev_idx = #{param2}
+		
+	</update>
+	
+		<select id="sessionId" resultType="String">
+		SELECT manage from user where user_id = #{param1}
+	</select>
+	
+</mapper>
+
+

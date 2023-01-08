@@ -9,9 +9,9 @@
 	</select>
 
 
-	<insert id="eatAdd" parameterType="String">
+	<insert id="eatAdd" >
 		INSERT into eat (idol_idx, eat_address, eat_name, user_idx, eat_source)
-		values(#{idol_idx},#{eat_address},#{eat_name},#{user_idx},#{eat_source});
+		values(#{param1},#{param2},#{param3},#{param4},#{param5});
 	</insert>
 </mapper>
 
