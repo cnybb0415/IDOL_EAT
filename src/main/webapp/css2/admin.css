@@ -66,13 +66,14 @@ table, thead, tbody, th, td {
   left: 0;
 }
 #adminWrap > header > div {
-  width: 4rem;
-  height: 4rem;
-  background-color: #7B7B7B;
+  width: 5.5rem;
+  height: 5.5rem;
+  background-image:url("../img/logo.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   margin-left: 6.4rem;
+  cursor:pointer;
 }
 #adminWrap > header > p {
   font-size: 2rem;

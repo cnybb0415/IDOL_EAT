@@ -12,8 +12,8 @@
 <body>
     <div class="detailWrap">
       <header>
-        <div></div>
-        <p>닉네임님 환영합니다</p>
+        <div onclick="homeGo()"></div>
+        <p onclick="logoutFunc()">로그아웃</p>
       </header>
       <main>
         <div class="detailMain">
@@ -55,91 +55,94 @@
     </div>
     <script language="javaScript">
     window.addEventListener("load", ()=>{
-    	  const starListLi = number => {
-    	    let revStar = "";
-    	    for(let j = 0; j < 5; j++){
-    	      if( j < number ){
-    	        revStar += `<li class="activeStar"></li>`;
-    	      } else {
-    	        revStar += `<li></li>`
-    	      }
-    	    }
-
-    	    return revStar;
-    	  }
-    	  
-    	  const detailReview = document.querySelector('textarea[name="detailReview"]');
-    	  detailReview.addEventListener("keyup", e => {
-    	    //console.log(detailReview.value.length);
-    	    if(detailReview.value.length > 300){
-    	      detailReview.value = detailReview.value.substr(0, 300);
-    	    }
-    	  });
-
-    	  const countStar = () => {
-			  let starNum = 0;
-			  document.querySelectorAll("#writeStar>li").forEach((value) => {
-				 if(value.classList.contains("activeStar")){
-					 starNum++;
-				 }
-			  });
-			  document.querySelector("#countStar").value = starNum;
-			  console.log(document.querySelector("#countStar").value);
-    	  }
-    	  
-    	  const writeStar = document.querySelectorAll("#writeStar>li");
-    	  Array.from(writeStar).forEach( (value, index) => { 
-    	    value.addEventListener("click", e => {
-    	      for(let i = 0; i < 5; i++){
-    	        if( i < index + 1){
-    	          writeStar[i].classList.add("activeStar");
-    	        } else{
-    	          writeStar[i].classList.remove("activeStar");
-    	        }
-    	      }
-    	      countStar();
-    	    });
-    	  });
-    	  
-    	 
-    	  const reviewMake = (reviewListUl, userNick, revContent, revStar, revImg, revDate) => {
-  	        createLi = document.createElement("li");
-  	        createDivName = document.createElement("div");
-  	        createStarUl = document.createElement("ul");
-  	        createImg = document.createElement("Img");
-  	        createSpan = document.createElement("span");
-
-  	        createDivName.innerHTML = "<span>" + userNick + "</span><p>" + revDate + "</p>";
-
-  	        createStarUl.classList.add("reviewStar", "starList");
-  	        createStarUl.innerHTML = starListLi(Number(revStar));
-  	        createImg.classList.add("detailReviewImg");
-  	        createSpan.innerText = revContent;
-
-  	        createLi.append(createDivName);
-  	        createLi.append(createStarUl);
-  	        if(revImg == "new" || revImg == ""){ //null 로 바꾸기
-  	        } else {
-  	        	createImg.setAttribute("src", "/photo/" + revImg);
-  	        	createImg.setAttribute("alt", "후기이미지");
-  		        createLi.append(createImg);	        	
-  	        }
-  	        createLi.append(createSpan);
-
-  	        reviewListUl.append(createLi);
-    	  }
-
-    	  const detailStar = document.querySelector("#detailStar");
-    	  const detailImgList = document.querySelector(".detailImageList");
-    	  const reviewListUl = document.querySelector("#reviewListUl");
-		  
-    	  detailStar.innerHTML = starListLi(Math.round(Number(${revList[0].rev_star})));
-    	  
-    	  <c:forEach items="${reviewList}" var="item">
-			  reviewMake(reviewListUl, `${item.user_nick}`, `${item.rev_content}`, `${item.rev_star}`, `${item.revP_new}`, `${item.rev_date}`);
-    	  </c:forEach>
-    	     
-    });
+    	 if(`${sessionScope.loginId}` == ""){
+    		 window.location.href="/";
+    	 } else {
+	    	  const starListLi = number => {
+	    	    let revStar = "";
+	    	    for(let j = 0; j < 5; j++){
+	    	      if( j < number ){
+	    	        revStar += `<li class="activeStar"></li>`;
+	    	      } else {
+	    	        revStar += `<li></li>`
+	    	      }
+	    	    }
+	
+	    	    return revStar;
+	    	  }
+	    	  
+	    	  const detailReview = document.querySelector('textarea[name="detailReview"]');
+	    	  detailReview.addEventListener("keyup", e => {
+	    	    //console.log(detailReview.value.length);
+	    	    if(detailReview.value.length > 300){
+	    	      detailReview.value = detailReview.value.substr(0, 300);
+	    	    }
+	    	  });
+	
+	    	  const countStar = () => {
+				  let starNum = 0;
+				  document.querySelectorAll("#writeStar>li").forEach((value) => {
+					 if(value.classList.contains("activeStar")){
+						 starNum++;
+					 }
+				  });
+				  document.querySelector("#countStar").value = starNum;
+				  console.log(document.querySelector("#countStar").value);
+	    	  }
+	    	  
+	    	  const writeStar = document.querySelectorAll("#writeStar>li");
+	    	  Array.from(writeStar).forEach( (value, index) => { 
+	    	    value.addEventListener("click", e => {
+	    	      for(let i = 0; i < 5; i++){
+	    	        if( i < index + 1){
+	    	          writeStar[i].classList.add("activeStar");
+	    	        } else{
+	    	          writeStar[i].classList.remove("activeStar");
+	    	        }
+	    	      }
+	    	      countStar();
+	    	    });
+	    	  });
+	    	  
+	    	 
+	    	  const reviewMake = (reviewListUl, userNick, revContent, revStar, revImg, revDate) => {
+	  	        createLi = document.createElement("li");
+	  	        createDivName = document.createElement("div");
+	  	        createStarUl = document.createElement("ul");
+	  	        createImg = document.createElement("Img");
+	  	        createSpan = document.createElement("span");
+	
+	  	        createDivName.innerHTML = "<span>" + userNick + "</span><p>" + revDate + "</p>";
+	
+	  	        createStarUl.classList.add("reviewStar", "starList");
+	  	        createStarUl.innerHTML = starListLi(Number(revStar));
+	  	        createImg.classList.add("detailReviewImg");
+	  	        createSpan.innerText = revContent;
+	
+	  	        createLi.append(createDivName);
+	  	        createLi.append(createStarUl);
+	  	        if(revImg == "new" || revImg == ""){ //null 로 바꾸기
+	  	        } else {
+	  	        	createImg.setAttribute("src", "/photo/" + revImg);
+	  	        	createImg.setAttribute("alt", "후기이미지");
+	  		        createLi.append(createImg);	        	
+	  	        }
+	  	        createLi.append(createSpan);
+	
+	  	        reviewListUl.append(createLi);
+	    	  }
+	
+	    	  const detailStar = document.querySelector("#detailStar");
+	    	  const detailImgList = document.querySelector(".detailImageList");
+	    	  const reviewListUl = document.querySelector("#reviewListUl");
+			  
+	    	  detailStar.innerHTML = starListLi(Math.round(Number(${revList[0].rev_star})));
+	    	  
+	    	  <c:forEach items="${reviewList}" var="item">
+				  reviewMake(reviewListUl, `${item.user_nick}`, `${item.rev_content}`, `${item.rev_star}`, `${item.revP_new}`, `${item.rev_date}`);
+	    	  </c:forEach>
+    	}
+    }); // load event
     function reviewWriteSubmit(e){
     	if(document.querySelector("#detailReview").value == ""){
     		e.preventDefault();
@@ -159,6 +162,28 @@
         };
         reader.readAsDataURL(event.target.files[0]);
      }
+    function logoutFunc(){
+		$.ajax({
+			type:"POST",
+			url:"/logout.do",
+			data:{
+				logout:"logout"
+			},
+			dataType:"TEXT",
+			success:function(data){
+				if(data == "logout"){
+					window.location.href="/"
+				}
+			},
+			error:function(err){
+				console.log("logout", err);
+				if(err) throw err;
+			}
+		});
+	}
+    function homeGo(){
+    	window.location.href = "/main.go";
+    }
     </script>
 </body>
 </html>

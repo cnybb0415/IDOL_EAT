@@ -70,17 +70,22 @@ input::placeholder {
   background-color: #FFF2E1;
 }
 .detailWrap > header > div {
-  width: 4rem;
-  height: 4rem;
-  background-color: #7B7B7B;
+  width: 5.5rem;
+  height: 5.5rem;
+  background-image:url("../img/logo.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   margin-left: 6.4rem;
+  cursor:pointer;
 }
 .detailWrap > header > p {
   font-size: 2rem;
   margin-right: 6.4rem;
+  cursor:pointer;
+}
+.detailWrap > header > p:hover {
+	text-decoration: underline;
 }
 .detailWrap main {
   display: flex;

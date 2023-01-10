@@ -35,6 +35,9 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7a45a5f0ccba360d83db496289cf28e2"></script>
     <!--<script src="./js/mainAsideScript.js"></script>-->
     <script type="text/javascript">
+    if(`${sessionScope.loginId}` == ""){
+    	window.location.href = "/";
+    }
 	console.log(`${sessionScope.loginId}`);
 	  $.ajax({
 	  	type:"POST",

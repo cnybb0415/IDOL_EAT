@@ -108,17 +108,22 @@ html .idolAddWrap .idolAddWrap2 > header, body .idolAddWrap .idolAddWrap2 > head
   z-index: 1000;
 }
 html .idolAddWrap .idolAddWrap2 > header > div, body .idolAddWrap .idolAddWrap2 > header > div {
-  width: 4rem;
-  height: 4rem;
-  background-color: #7B7B7B;
+  width: 5.5rem;
+  height: 5.5rem;
+  background-image:url("../img/logo.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   margin-left: 6.4rem;
+  cursor:pointer;
 }
 html .idolAddWrap .idolAddWrap2 > header > p, body .idolAddWrap .idolAddWrap2 > header > p {
   font-size: 2rem;
   margin-right: 6.4rem;
+  cursor:pointer;
+}
+.idolAddWrap2 > header > p:hover {
+	text-decoration: underline;
 }
 html .idolAddWrap .idolAddWrap2 > header, body .idolAddWrap .idolAddWrap2 > header {
   position: fixed;

@@ -108,17 +108,22 @@ html .memberWrap .memberWrap2 > header, body .memberWrap .memberWrap2 > header {
   z-index: 1000;
 }
 html .memberWrap .memberWrap2 > header > div, body .memberWrap .memberWrap2 > header > div {
-  width: 4rem;
-  height: 4rem;
-  background-color: #7B7B7B;
+  width: 5.5rem;
+  height: 5.5rem;
+  background-image:url("../img/logo.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   margin-left: 6.4rem;
+  cursor:pointer;
 }
 html .memberWrap .memberWrap2 > header > p, body .memberWrap .memberWrap2 > header > p {
   font-size: 2rem;
   margin-right: 6.4rem;
+  cursor:pointer;
+}
+.memberWrap2 > header > p:hover {
+	text-decoration: underline;
 }
 html .memberWrap .memberWrap2 > header, body .memberWrap .memberWrap2 > header {
   position: fixed;

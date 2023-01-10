@@ -23,8 +23,8 @@
       <div class="memberWrap2">
          <!-- 관리자 페이지 헤더 -->
          <header>
-            <div></div>
-            <p>닉네임 관리자님 환영합니다.</p>
+            <div onclick="homeGo()"></div>
+            <p onclick="logoutFunc()">로그아웃</p>
          </header>
          <!-- 정보 입력 -->
          <section class="memberBox">
@@ -72,6 +72,9 @@
       </div>
    </main>
    <script>
+	   if(`${sessionScope.loginId}` == ""){
+			 window.location.href="/";
+		}
 		function memberCancel(){
    			window.location.href = "/admin.go";
    		}
@@ -167,6 +170,28 @@
    		});
    		document.getElementById("memberAdd1").value = addString1;
    		document.getElementById("memberAdd2").value = addString2;
+   		function logoutFunc(){
+   			$.ajax({
+   				type:"POST",
+   				url:"/logout.do",
+   				data:{
+   					logout:"logout"
+   				},
+   				dataType:"TEXT",
+   				success:function(data){
+   					if(data == "logout"){
+   						window.location.href="/"
+   					}
+   				},
+   				error:function(err){
+   					console.log("logout", err);
+   					if(err) throw err;
+   				}
+   			});
+   		}
+   	    function homeGo(){
+   	    	window.location.href = "/main.go";
+   	    }
    </script>
 </body>
 </html>

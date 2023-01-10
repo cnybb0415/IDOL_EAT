@@ -73,111 +73,114 @@
 
    <!-- JS -->
    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-   <script>
+   <script>  
    window.addEventListener("load", () => {
-
-	   const addSearchBox = document.querySelector(".addSearchBox");
-	   const qSearch = document.querySelector('input[name="qSearch"]');
-	   const addStore = document.querySelector("#addStore");
-	   const addAdd1 = document.querySelector("#addAdd1");
-	   const addAdd2 = document.querySelector("#addAdd2");
-	   const addText = document.querySelector("#addText");
-	   const addInfoBtn2 = document.querySelector(".addInfoBtn2");
-	   let addIdolArray = 0;
-	   let addIdolIndex = 0;
-	   
-	   const clickList = e => {
-	     qSearch.value = e.target.innerText;
-	     addIdolArray.forEach((value) => {
-	    	if(value.idol_name == qSearch.value){
-	    		addIdolIndex = value.idol_idx;
-	    	} 
-	     });
-	     console.log(addIdolIndex);
-	     addSearchBox.lastChild.remove();
+	   if(`${sessionScope.loginId}` == ""){
+		   window.location.href="/";
+	   } else {
+		   const addSearchBox = document.querySelector(".addSearchBox");
+		   const qSearch = document.querySelector('input[name="qSearch"]');
+		   const addStore = document.querySelector("#addStore");
+		   const addAdd1 = document.querySelector("#addAdd1");
+		   const addAdd2 = document.querySelector("#addAdd2");
+		   const addText = document.querySelector("#addText");
+		   const addInfoBtn2 = document.querySelector(".addInfoBtn2");
+		   let addIdolArray = 0;
+		   let addIdolIndex = 0;
+		   
+		   const clickList = e => {
+		     qSearch.value = e.target.innerText;
+		     addIdolArray.forEach((value) => {
+		    	if(value.idol_name == qSearch.value){
+		    		addIdolIndex = value.idol_idx;
+		    	} 
+		     });
+		     console.log(addIdolIndex);
+		     addSearchBox.lastChild.remove();
+		   }
+		   
+		   const createSearch = (list, target) => {
+		     const createUl = document.createElement("ul");
+		     for(let i = 0; i < list.length; i++){
+		       const createLi = document.createElement("li");
+		       createLi.innerText = list[i].idol_name;
+		       createLi.onclick = e => clickList(e);
+		       createUl.append(createLi);
+		     }
+		     target.append(createUl);
+		   }
+	
+	
+		   qSearch.addEventListener("keyup", e => {
+		     if(addSearchBox.childElementCount > 2){
+		       addSearchBox.lastElementChild.remove();
+		     }
+			
+		     $.ajax({
+		    	 type:"GET",
+		    	 url:"/eatAddIdolList",
+		    	 dataType:"JSON",
+		    	 success:function(data){
+		    	   addIdolArray = data.EatIdolData;
+		  	       let filterName = data.EatIdolData.filter(element => 
+		  	       	element.idol_name.includes(e.target.value)
+		  	       );
+			       if(filterName.length != 0 && e.target.value != ""){
+			         createSearch(filterName, addSearchBox);
+			       }	    		 
+		    	 },
+		    	 error:function(err){
+		    		 console.log("qSearch", err);
+		    		 if(err) throw err;
+		    	 }
+		    	 
+		     });
+		   });
+		   
+		   addAdd1.addEventListener("click", e => {
+		     new daum.Postcode({
+		       oncomplete: function(data) {
+		         e.target.value = data.address;
+		       },
+		       onclose: function(state){
+		         if(state === 'FORCE_CLOSE'){}
+		         else if(state === 'COMPLETE_CLOSE'){}
+		       }
+	
+		     }).open();
+		   });
+	
+		   addInfoBtn2.addEventListener("click", e => {
+		     e.preventDefault();
+		     let eatAddress = "";
+		     if(addAdd2.value == ""){
+		    	 eatAddress = addAdd1.value;
+		     } else {
+		    	 eatAddress = addAdd1.value + " " + addAdd2.value;
+		     }
+		    	 
+		     $.ajax({
+		    	type:"POST",
+		    	url:"/eatAdd.do",
+		    	data:{
+		    		 idol_idx: addIdolIndex,
+			         eat_name: addStore.value,
+			         eat_address: eatAddress,
+			         eat_source: addText.value	    		
+		    	},
+		    	dataType:"TEXT",
+		    	success:function(data){
+		    		if(data == "success"){
+		    			window.location.href = "/main.go";
+		    		}
+		    	},
+		    	error:function(err){
+		    		console.log("eatAdd.do", err);
+		    		if(err) throw err;
+		    	}
+		     });
+		   });
 	   }
-	   
-	   const createSearch = (list, target) => {
-	     const createUl = document.createElement("ul");
-	     for(let i = 0; i < list.length; i++){
-	       const createLi = document.createElement("li");
-	       createLi.innerText = list[i].idol_name;
-	       createLi.onclick = e => clickList(e);
-	       createUl.append(createLi);
-	     }
-	     target.append(createUl);
-	   }
-
-
-	   qSearch.addEventListener("keyup", e => {
-	     if(addSearchBox.childElementCount > 2){
-	       addSearchBox.lastElementChild.remove();
-	     }
-		
-	     $.ajax({
-	    	 type:"GET",
-	    	 url:"/eatAddIdolList",
-	    	 dataType:"JSON",
-	    	 success:function(data){
-	    	   addIdolArray = data.EatIdolData;
-	  	       let filterName = data.EatIdolData.filter(element => 
-	  	       	element.idol_name.includes(e.target.value)
-	  	       );
-		       if(filterName.length != 0 && e.target.value != ""){
-		         createSearch(filterName, addSearchBox);
-		       }	    		 
-	    	 },
-	    	 error:function(err){
-	    		 console.log("qSearch", err);
-	    		 if(err) throw err;
-	    	 }
-	    	 
-	     });
-	   });
-	   
-	   addAdd1.addEventListener("click", e => {
-	     new daum.Postcode({
-	       oncomplete: function(data) {
-	         e.target.value = data.address;
-	       },
-	       onclose: function(state){
-	         if(state === 'FORCE_CLOSE'){}
-	         else if(state === 'COMPLETE_CLOSE'){}
-	       }
-
-	     }).open();
-	   });
-
-	   addInfoBtn2.addEventListener("click", e => {
-	     e.preventDefault();
-	     let eatAddress = "";
-	     if(addAdd2.value == ""){
-	    	 eatAddress = addAdd1.value;
-	     } else {
-	    	 eatAddress = addAdd1.value + " " + addAdd2.value;
-	     }
-	    	 
-	     $.ajax({
-	    	type:"POST",
-	    	url:"/eatAdd.do",
-	    	data:{
-	    		 idol_idx: addIdolIndex,
-		         eat_name: addStore.value,
-		         eat_address: eatAddress,
-		         eat_source: addText.value	    		
-	    	},
-	    	dataType:"TEXT",
-	    	success:function(data){
-	    		if(data == "success"){
-	    			window.location.href = "/main.go";
-	    		}
-	    	},
-	    	error:function(err){
-	    		console.log("eatAdd.do", err);
-	    		if(err) throw err;
-	    	}
-	     });
-	   });
 	 });
    </script>
 </body>
