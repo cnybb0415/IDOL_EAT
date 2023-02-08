@@ -36,13 +36,14 @@ window.addEventListener("load", () => {
 
   //마커 생성 및 이동 함수
   const markerMake = (counter, map, markIdx, markAddr, markName, markImg, clickTarget) => {
-    
+    console.log("마커생성함수 받은 값", counter, map, markIdx, markAddr, markName);
     let markPos = 0;
     const geocoder = new kakao.maps.services.Geocoder();
       // 주소로 좌표를 검색합니다
     geocoder.addressSearch(markAddr, function(result, status) { //address_value가 주소 들어가는 부분
       // 정상적으로 검색이 완료됐으면 
       if (status === kakao.maps.services.Status.OK) {
+        console.log("주소 검색 완료");
         markPos = new kakao.maps.LatLng(result[0].y, result[0].x);
       }
       // 마커 이미지의 이미지 크기 입니다
@@ -61,7 +62,7 @@ window.addEventListener("load", () => {
       	window.location.href="/revDetail.go?eat_idx=" + markIdx 
       });
       mainMarkerArray.push(marker);
-
+	  console.log("markPos", markPos);
       clickTarget.onclick = () => {
         map.panTo(markPos);
       };
@@ -70,7 +71,6 @@ window.addEventListener("load", () => {
         map.panTo(markPos);
       }
       return markPos;
-      //console.log(markPos);
     });
   }
 
@@ -83,7 +83,7 @@ window.addEventListener("load", () => {
 	    } 
 	});
 	mainListHeader.innerHTML = `
-      	<img src=/photo/${idolImgName} alt=${e.target.innerText} 사진>
+      	<img src=/photo.do?path=${idolImgName} alt=${e.target.innerText} 사진>
       	<p><span>${e.target.innerHTML}</span>님의 추천 맛집</p>
     `;
 	console.log(mainIdolIndex);
@@ -98,12 +98,13 @@ window.addEventListener("load", () => {
 
 	$.ajax({
 		type:"POST",
-		url:"idolMain",
+		url:"/idolMain",
 		data:{
 			idol_idx: mainIdolIndex
 		},
 		dataType:"JSON",
 		success:function(data){
+		  	console.log("맛집리스트 출력 ajax 성공");
 			for(let i = 0; i < data.mainEatList.length; i++){
 	          const createArticle = document.createElement("article");
 	          const createDiv = document.createElement("div");
@@ -123,8 +124,8 @@ window.addEventListener("load", () => {
 	          createAddress.innerText = `${data.mainEatList[i].eat_address}`;
 	          createUl.className = 'starList';
 	          createUl.innerHTML = `${starListLi(Number(data.mainEatList[i].rev_star))}`
-	
-	          markerMake(i, map, data.mainEatList[i].eat_idx, data.mainEatList[i].eat_address, data.mainEatList[i].eat_name, `/photo/${data.mainEatList[i].idol_mark_new}`, createArticle);
+	          
+	          markerMake(i, map, data.mainEatList[i].eat_idx, data.mainEatList[i].eat_address, data.mainEatList[i].eat_name, `/photo.do?path=${data.mainEatList[i].idol_mark_new}`, createArticle);
 	          createArticle.append(createDiv);
 	          createArticle.append(createAddress);
 	          createArticle.append(createUl);
@@ -159,7 +160,7 @@ window.addEventListener("load", () => {
 
 	$.ajax({
 		type:"GET",
-		url:"mainIdolList",
+		url:"/mainIdolList",
 		dataType:"JSON",
 		success:function(data){
 			mainIdolArray = data.IdolMain;
@@ -179,11 +180,12 @@ window.addEventListener("load", () => {
   const mainMarker = () => {
   	$.ajax({
   		type:"GET",
-  		url:"mainList",
+  		url:"/mainList",
   		dataType:"JSON",
   		success:function(data){
+  			console.log("처음 로딩할 때 마커 전부 뿌려주기 ajax 성공");
   			for(let i = 0; i<data.mainList.length; i++){
-  				markerMake(i, map, data.mainList[i].eat_idx, data.mainList[i].eat_address, data.mainList[i].eat_name, `/photo/${data.mainList[i].idol_mark_new}`, "");  				
+  				markerMake(i, map, data.mainList[i].eat_idx, data.mainList[i].eat_address, data.mainList[i].eat_name, `/photo.do?path=${data.mainList[i].idol_mark_new}`, "");  				
   			}
   		},
   		error:function(err){

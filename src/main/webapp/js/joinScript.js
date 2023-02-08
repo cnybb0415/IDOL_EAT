@@ -168,5 +168,13 @@ window.addEventListener("load", () => {
   /* EVENT -- alert */
   joinAlertBtn.addEventListener("click", e => {
     joinAlert.style.visibility = "hidden";
-  })
+  });
 });
+
+function joinCancel(){
+	if(!confirm("회원가입을 취소하시겠습니까?")){
+		return;
+	} else {
+		window.location.href = "/";
+	}
+}

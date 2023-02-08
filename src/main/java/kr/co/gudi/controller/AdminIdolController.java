@@ -42,7 +42,7 @@ public class AdminIdolController {
 		
 		service.write(params,inputIdolImg,inputIdolMark);
 		
-		return "redirect:/";
+		return "redirect:/admin.go";
 	}
 	@ResponseBody
 	@RequestMapping(value = "/idolList")

@@ -80,7 +80,7 @@ public class ReviewController {
 		logger.info("files : {}",detailLoadImg);
 		logger.info("user id : "+user_id);
 		
-		service.revWrite(rev_star,eat_idx,rev_content,detailLoadImg,user_id);
+		service.revWrite(rev_star,eat_idx,rev_content,detailLoadImg,user_id,params);
 		
 		return "redirect:/revDetail.go?eat_idx="+eat_idx;
 	}

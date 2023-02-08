@@ -68,7 +68,7 @@
                      </div>
                   </div>
                   <div class="joinInfoBtn">
-                     <button type="button" class="joinInfoBtn1">취소</button>
+                     <button type="button" class="joinInfoBtn1" onclick="joinCancel()">취소</button>
                      <button type="submit" class="joinInfoBtn2">가입하기</button>
                   </div>
                </div>
@@ -76,13 +76,6 @@
          </section>
       </div>
    </main>
-
-   <!-- alert -->
-   <section class="joinAlert">
-      <h3 title="경고아이콘"></h3>
-      <p>중복된 아이디가 존재합니다.<br>다른 아이디를 작성해주세요.</p>
-      <button type="button">확인</button>
-   </section>
 
    <!-- JS -->
    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

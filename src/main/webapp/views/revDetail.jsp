@@ -18,7 +18,7 @@
       <main>
         <div class="detailMain">
           <section>
-            <img class="detailIdol" alt=`${revList[0].idol_name}사진` src=/photo/${revList[0].idol_img_new}>
+            <img class="detailIdol" alt=`${revList[0].idol_name}사진` src=/photo.do?path=${revList[0].idol_img_new}>
             <h2>${revList[0].eat_name}</h2>
             <ul class="starList" id="detailStar"></ul>
             <p>${revList[0].eat_address}</p>
@@ -27,8 +27,9 @@
           <section>
             <form action="revWrite" method="POST" enctype="multipart/form-data" onsubmit="reviewWriteSubmit(event)">
               <fieldset class="pictureArea">
-                <img class="pictureView" id="revImg" />
+                <img class="pictureView" id="revImg" src="" />
                 <input type="file" name="detailLoadImg" id="detailLoadImg" onchange="revImgChange(event)">
+              	<input style="display: none;" type="text" name="detailImgFlag" id="detailImgFlag" value="0">
               </fieldset>
               <div class="reviewArea">
                 <ul class="starList" id="writeStar">
@@ -123,7 +124,7 @@
 	  	        createLi.append(createStarUl);
 	  	        if(revImg == "new" || revImg == ""){ //null 로 바꾸기
 	  	        } else {
-	  	        	createImg.setAttribute("src", "/photo/" + revImg);
+	  	        	createImg.setAttribute("src", "/photo.do?path=" + revImg);
 	  	        	createImg.setAttribute("alt", "후기이미지");
 	  		        createLi.append(createImg);	        	
 	  	        }
@@ -161,6 +162,7 @@
            document.getElementById("revImg").setAttribute("src", e.target.result);
         };
         reader.readAsDataURL(event.target.files[0]);
+        document.getElementById("detailImgFlag").value = "1";
      }
     function logoutFunc(){
 		$.ajax({

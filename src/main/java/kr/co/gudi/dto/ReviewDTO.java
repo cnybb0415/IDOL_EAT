@@ -21,8 +21,15 @@ public class ReviewDTO {
 	private int idol_idx;
 	private String user_nick;
 	private String user_id;
+	private String revP_new;
 	
 	
+	public String getRevP_new() {
+		return revP_new;
+	}
+	public void setRevP_new(String revP_new) {
+		this.revP_new = revP_new;
+	}
 	public String getUser_id() {
 		return user_id;
 	}

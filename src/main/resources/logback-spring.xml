@@ -5,7 +5,28 @@
 <!-- 60초마다 설정 파일의 변경을 확인 하여 변경시 갱신 -->
 <configuration scan="true" scanPeriod="60 seconds">
 
-	<!-- 패턴 등록 -->
+<!-- Appenders : File -->
+   <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">   
+      <!-- 저장 위치 -->
+      <file>/usr/local/tomcat/logs/boot.log</file>
+      <!-- 출력 패턴 -->
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+         <pattern>${LOG_PATTERN}</pattern>       
+      </encoder>
+      <!-- rolling 정책 -->
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+         <!-- 일자 별로 저장해라 -->
+         <fileNamePattern>C:/logs/boot.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+         <!-- 파일 용량 -->
+         <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+            <maxFileSize>10MB</maxFileSize>
+         </timeBasedFileNamingAndTriggeringPolicy>
+         <!-- 일자별 로그 파일 최대 보관 주기 -->
+         <maxHistory>30</maxHistory>
+      </rollingPolicy>
+   </appender>
+   
+   	<!-- 패턴 등록 -->
 	<property name="LOG_PATTERN" value="%-5level %d{yy-MM-dd HH:mm:ss}[%thread] [%logger{0}:%line] - %msg%n"/>
 
 	<!-- Appenders :  CONSOLE -->
@@ -27,6 +48,7 @@
    	<!-- Root Logger -->
 	<root>
 		<appender-ref ref="console" />
+		<appender-ref ref="file" />
 	</root>
     
 </configuration>

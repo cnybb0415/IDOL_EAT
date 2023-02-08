@@ -50,13 +50,6 @@
       </div>
    </main>
    
-   <!-- alert -->
-   <section class="loginAlert">
-      <h3 title="경고아이콘"></h3>
-      <p>아이디 또는 비밀번호가 일치하지 않습니다.<br>다시 입력해주세요.</p>
-      <button type="button">확인</button>
-   </section>
-
    <!-- JS -->
    <script>
   	window.addEventListener("load", ()=>{

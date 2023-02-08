@@ -32,8 +32,8 @@
             <h2 class="idolUpdateBoxTitle">아이돌 정보 수정</h2>
             <form action="idolUpdate.do" method="POST" enctype="multipart/form-data" onsubmit="idolUpdateSubmit(event)">
                <div class="idolUpdateImgs">
-                  <img id="idolUpdateBoxImg" class="idolUpdateBoxImg" src=/photo/${idolDetail.idol_img_new} alt="아이돌 사진">
-                  <img id="idolUpdateBoxMarkerImg" class="idolUpdateBoxMarkerImg" src=/photo/${idolDetail.idol_mark_new} alt="마커 사진">
+                  <img id="idolUpdateBoxImg" class="idolUpdateBoxImg" src=/photo.do?path=${idolDetail.idol_img_new} alt="아이돌 사진">
+                  <img id="idolUpdateBoxMarkerImg" class="idolUpdateBoxMarkerImg" src=/photo.do?path=${idolDetail.idol_mark_new} alt="마커 사진">
                </div>
                <div class="idolUpdateInfo">
                   <div class="idolUpdateInfoBoxs">

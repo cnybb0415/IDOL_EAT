@@ -79,18 +79,18 @@
 	
 	<select id="eatData" resultType="EatDTO">
 		select * from idol i,eat e 
-			where eat_idx = #{param1} and i.idol_idx =e.idol_idx;
+			where eat_idx = #{param1} and i.idol_idx =e.idol_idx
 	</select>
 	
 	<select id="userDetail" resultType="UserDTO">
 		select * from user 
-			where user_idx = #{param1};
+			where user_idx = #{param1}
 	</select>
 	
 	<select id="reviewDetail" resultType="ReviewDTO">
-			SELECT * FROM review r, eat e, user u  
-			WHERE rev_idx = #{param1} and r.eat_idx = e.eat_idx and u.user_idx = r.user_idx  
-			ORDER BY rev_idx;
+			SELECT * FROM review r, eat e, user u, review_pic rp 
+			WHERE r.rev_idx = #{param1} and r.eat_idx = e.eat_idx and u.user_idx = r.user_idx  and rp.rev_idx = r.rev_idx
+			ORDER BY r.rev_idx
 	</select>
 	
 	<update id="update" parameterType="String">

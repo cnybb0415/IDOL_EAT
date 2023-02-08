@@ -47,7 +47,7 @@ public class ReviewService {
 	}
 
 	public void revWrite(String rev_star, String eat_idx, 
-			String rev_content, MultipartFile detailLoadImg, String user_id) throws Exception {
+			String rev_content, MultipartFile detailLoadImg, String user_id, HashMap<String, String> params) throws Exception {
 		String user_idx = dao.userIdx(user_id);
 		ReviewDTO dto = new ReviewDTO();
 		dto.setRev_content(rev_content);
@@ -58,14 +58,19 @@ public class ReviewService {
 		int rev_idx = dto.getRev_idx();
 		logger.info("rev_idx : "+rev_idx);
 		logger.info("row : "+row);
-		if(row > 0) {
-			dao.revUpdate(rev_star,rev_idx);
-			upload(rev_idx,detailLoadImg);
-			try {
-				Thread.sleep(1);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		String flag = params.get("detailImgFlag");
+		logger.info("flag : "+flag);
+		if(row > 0 && flag.equals("1")) {
+			
+				dao.revUpdate(rev_star,rev_idx);
+				upload(rev_idx,detailLoadImg);
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				
+				
 			}
 		}
 		

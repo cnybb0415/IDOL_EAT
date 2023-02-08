@@ -19,7 +19,7 @@
         <main>
           <div class="adminReviewContent">
             <div class="adminReviewImg">
-              <img src="" alt="리뷰 이미지">
+              <img id="adminRevImage" src="" alt="리뷰 이미지">
               <div id="starArea"></div>
             </div>
             <div class="adminReviewInfo">
@@ -384,6 +384,9 @@
 							document.getElementById("adminRevMemNick").innerHTML = data.reviewDetail[0].user_nick;
 							document.getElementById("adminRevDate").innerHTML = data.reviewDetail[0].rev_date;
 							document.getElementById("adminRevDetail").innerHTML = data.reviewDetail[0].rev_content;
+							document.getElementById("adminRevImage").setAttribute("src", "/photo.do?path=" + data.reviewDetail[0].revP_new);
+							console.log(data.reviewDetail[0].revP_new);
+							console.log(data.reviewDetail[0].revp_new);
 							let starString = "";
 							let starNumber = Math.ceil(parseInt(data.reviewDetail[0].rev_star));
 							console.log(starNumber);
